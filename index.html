@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskmaster Telemetry & Historical Analytics Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 950: '#020617' },
+                        tm: { red: '#dc2626', gold: '#eab308', dark: '#0f172a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Apache ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <!-- sql.js (Client-Side SQLite WASM) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- Global Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-6 py-4 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+        <div class="flex items-center space-x-3">
+            <div class="h-9 w-9 rounded bg-red-600 flex items-center justify-center font-black text-xl text-white shadow-lg shadow-red-600/30 border border-red-500">TM</div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-slate-100 leading-none">Taskmaster Telemetry Studio</h1>
+                <span class="text-[11px] text-slate-400">Star-Schema Analytics Engine & Historical Database</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 self-stretch lg:self-auto overflow-x-auto">
+            <button id="tab-btn-series" onclick="switchTab('series')" class="px-4 py-2 text-xs font-semibold rounded-lg transition-all bg-red-600 text-white shadow-sm shadow-red-900/20 whitespace-nowrap">
+                Series Deep Dive
+            </button>
+            <button id="tab-btn-alltime" onclick="switchTab('alltime')" class="px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 whitespace-nowrap">
+                All-Time Hall of Fame
+            </button>
+            <button id="tab-btn-pivot" onclick="switchTab('pivot')" class="px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 flex items-center gap-1.5 whitespace-nowrap">
+                <span class="h-2 w-2 rounded-full bg-amber-400"></span> Visual Pivot Studio
+            </button>
+            <button id="tab-btn-h2h" onclick="switchTab('h2h')" class="px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 flex items-center gap-1.5 whitespace-nowrap">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span> Head-to-Head
+            </button>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <span id="status-indicator" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                <span class="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse"></span> Booting Engine...
+            </span>
+        </div>
+    </header>
+
+    <main class="flex-1 p-6 max-w-[1700px] w-full mx-auto space-y-6">
+
+        <!-- ========================================================================= -->
+        <!-- TAB 1: SERIES ANALYSIS WORKBENCH                                          -->
+        <!-- ========================================================================= -->
+        <div id="tab-content-series" class="space-y-6">
+
+            <!-- Controls Filter Bar -->
+            <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm">
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Select Series</label>
+                    <select id="filter-series" onchange="onSeriesChange()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 font-semibold cursor-pointer">
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Episode Drill-Down</label>
+                    <select id="filter-episode" onchange="applySeriesFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 cursor-pointer">
+                        <option value="ALL">All Episodes</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Task Classification</label>
+                    <select id="filter-task-type" onchange="applySeriesFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 cursor-pointer">
+                        <option value="ALL">All Types</option>
+                        <option value="Prize">Prize</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Team">Team</option>
+                        <option value="Live">Live</option>
+                        <option value="Tiebreak">Tiebreak</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Full-Width Progression Chart -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-sm space-y-3">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-100">Cumulative Progression & Lead Trajectory</h2>
+                        <p class="text-xs text-slate-400">Cumulative point totals across sequential task attempts</p>
+                    </div>
+                </div>
+                <div id="chart-cumulative" class="w-full h-96"></div>
+            </section>
+
+            <!-- Grid of 2 Supporting Charts -->
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200">Points Breakdown by Task Type</h3>
+                    <div id="chart-task-type" class="w-full h-80"></div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200">Scoring Distribution & Consistency (Boxplot)</h3>
+                    <div id="chart-consistency" class="w-full h-80"></div>
+                </div>
+            </section>
+
+            <!-- Series Contestant Leaderboard Table -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                <div class="p-5 border-b border-slate-800 flex justify-between items-center">
+                    <h2 class="text-base font-semibold text-slate-100">Series Summary Leaderboard</h2>
+                    <span id="series-data-summary" class="text-xs text-slate-400">Awaiting query...</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="bg-slate-950 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800">
+                            <tr>
+                                <th class="px-6 py-3">Contestant</th>
+                                <th class="px-6 py-3 text-right">Total Points</th>
+                                <th class="px-6 py-3 text-right">Prize</th>
+                                <th class="px-6 py-3 text-right">Normal</th>
+                                <th class="px-6 py-3 text-right">Team</th>
+                                <th class="px-6 py-3 text-right">Live</th>
+                                <th class="px-6 py-3 text-right">Episode Wins</th>
+                                <th class="px-6 py-3 text-right">Tiebreak Wins</th>
+                                <th class="px-6 py-3 text-right">DQ Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body" class="divide-y divide-slate-800/50"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Granular Task Drilldown with Search -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                <div class="p-5 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <h2 class="text-base font-semibold text-slate-100">Granular Fact Telemetry Drilldown</h2>
+                    <input type="text" id="task-search-input" onkeyup="filterTaskDrilldown()" placeholder="Search task descriptions..." class="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-red-500 w-full sm:w-64">
+                </div>
+                <div class="overflow-x-auto max-h-96">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-slate-950 uppercase tracking-wider text-slate-400 border-b border-slate-800 sticky top-0 z-10">
+                            <tr>
+                                <th class="px-4 py-3">Episode</th>
+                                <th class="px-4 py-3">Task #</th>
+                                <th class="px-4 py-3">Type</th>
+                                <th class="px-4 py-3">Task Description</th>
+                                <th class="px-4 py-3">Contestant</th>
+                                <th class="px-4 py-3 text-right">Points</th>
+                                <th class="px-4 py-3 text-center">Status</th>
+                                <th class="px-4 py-3 text-center">Winner</th>
+                            </tr>
+                        </thead>
+                        <tbody id="task-drilldown-body" class="divide-y divide-slate-800/40 font-mono"></tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- TAB 2: ALL-TIME HISTORICAL HALL OF FAME                                   -->
+        <!-- ========================================================================= -->
+        <div id="tab-content-alltime" class="hidden space-y-6">
+
+            <!-- All-Time Drilldown Filters -->
+            <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm">
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Series Filter Range</label>
+                    <select id="alltime-filter-series" onchange="applyAllTimeFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 font-semibold cursor-pointer">
+                        <option value="ALL">All Series (Complete Dataset)</option>
+                        <option value="1-5">Series 1 to 5</option>
+                        <option value="6-10">Series 6 to 10</option>
+                        <option value="11-15">Series 11 to 15</option>
+                        <option value="16-25">Series 16+</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Task Type Filter</label>
+                    <select id="alltime-filter-task-type" onchange="applyAllTimeFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 cursor-pointer">
+                        <option value="ALL">All Task Types</option>
+                        <option value="Prize">Prize Only</option>
+                        <option value="Normal">Normal Tasks Only</option>
+                        <option value="Team">Team Tasks Only</option>
+                        <option value="Live">Live Tasks Only</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Min Overall Series Tasks</label>
+                    <select id="alltime-filter-min-tasks" onchange="applyAllTimeFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 cursor-pointer">
+                        <option value="0">All Contestants (No minimum)</option>
+                        <option value="20" selected>Standard Series (20+ Total Tasks)</option>
+                        <option value="40">10-Episode Series Only (40+ Tasks)</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Global KPI Cards -->
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-1">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Filtered Contestants</span>
+                    <p id="kpi-contestants" class="text-2xl font-black text-slate-100">-</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-1">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Tasks Scored</span>
+                    <p id="kpi-tasks" class="text-2xl font-black text-red-400">-</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-1">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Points Awarded</span>
+                    <p id="kpi-points" class="text-2xl font-black text-amber-400">-</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-1">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Disqualifications</span>
+                    <p id="kpi-dqs" class="text-2xl font-black text-rose-500">-</p>
+                </div>
+            </section>
+
+            <!-- All-Time Visualisations with DataZoom -->
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm font-semibold text-slate-200">Efficiency Matrix: Points per Task vs Total Points</h3>
+                        <span class="text-[11px] text-slate-400">Interactive Bubble Matrix</span>
+                    </div>
+                    <div id="chart-alltime-scatter" class="w-full h-96"></div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm font-semibold text-slate-200">Top 20 Episode Winners (Filtered)</h3>
+                        <span class="text-[11px] text-slate-400">Episode Win Count</span>
+                    </div>
+                    <div id="chart-alltime-wins" class="w-full h-96"></div>
+                </div>
+            </section>
+
+            <!-- All-Time Historical Leaderboard -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                <div class="p-5 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <h2 class="text-base font-semibold text-slate-100">All-Time Contestant Leaderboard</h2>
+                        <span class="text-xs text-slate-400">Normalised cross-series performance ranking</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <label class="text-xs text-slate-400">Sort By:</label>
+                        <select id="alltime-sort" onchange="applyAllTimeFilters()" class="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-red-500">
+                            <option value="total_points">Total Points (Desc)</option>
+                            <option value="pts_per_task">Points per Task (Desc)</option>
+                            <option value="ep_wins">Episode Wins (Desc)</option>
+                            <option value="dq_count">Disqualifications (Desc)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="overflow-x-auto max-h-[500px]">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="bg-slate-950 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800 sticky top-0 z-10">
+                            <tr>
+                                <th class="px-6 py-3">Rank</th>
+                                <th class="px-6 py-3">Contestant</th>
+                                <th class="px-6 py-3">Series</th>
+                                <th class="px-6 py-3 text-right">Total Points</th>
+                                <th class="px-6 py-3 text-right">Pts / Task</th>
+                                <th class="px-6 py-3 text-right">Tasks Attempted</th>
+                                <th class="px-6 py-3 text-right">Episode Wins</th>
+                                <th class="px-6 py-3 text-right">Tiebreak Wins</th>
+                                <th class="px-6 py-3 text-right">DQ Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="alltime-leaderboard-body" class="divide-y divide-slate-800/50 font-mono text-xs"></tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- TAB 3: POWERBI-STYLE SELF-SERVICE VISUAL PIVOT STUDIO                     -->
+        <!-- ========================================================================= -->
+        <div id="tab-content-pivot" class="hidden space-y-6">
+
+            <!-- Pivot Builder Configurator -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-sm space-y-5">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-800 pb-4">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-100">Self-Service Star-Schema Pivot Builder</h2>
+                        <p class="text-xs text-slate-400">Select dimensions and measures to generate custom aggregated visualisations on the fly.</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="exportPivotDataCSV()" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg transition border border-slate-700 flex items-center gap-1">
+                            <span>Export CSV</span>
+                        </button>
+                        <button onclick="renderPivotStudio()" class="px-5 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-lg transition shadow-md shadow-red-900/20 flex items-center gap-1.5">
+                            <span>Update Visualisation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="space-y-1">
+                        <label class="block text-xs font-semibold text-slate-300">Dimension (X-Axis / Rows)</label>
+                        <select id="pivot-dim" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 font-medium">
+                            <option value="c.contestant_name">Contestant Name</option>
+                            <option value="'Series ' || f.series_id">Series</option>
+                            <option value="'Episode ' || f.episode_num">Episode Number</option>
+                            <option value="t.task_type">Task Classification Type</option>
+                            <option value="CASE WHEN f.is_dq = 1 THEN 'Disqualified' ELSE 'Valid' END">DQ Status</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="block text-xs font-semibold text-slate-300">Measure (Metric Value)</label>
+                        <select id="pivot-measure" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 font-medium">
+                            <option value="SUM(f.points)">Sum of Points</option>
+                            <option value="ROUND(AVG(f.points), 2)">Average Points per Task</option>
+                            <option value="COUNT(f.score_id)">Task Count</option>
+                            <option value="SUM(f.is_dq)">Total Disqualifications</option>
+                            <option value="COUNT(DISTINCT CASE WHEN f.is_ep_winner = 1 THEN f.episode_num END)">Episode Wins</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="block text-xs font-semibold text-slate-300">Breakdown (Legend Split)</label>
+                        <select id="pivot-legend" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 font-medium">
+                            <option value="NONE">None (Single Dimension)</option>
+                            <option value="t.task_type">Task Type</option>
+                            <option value="'Series ' || f.series_id">Series</option>
+                            <option value="CASE WHEN f.is_dq = 1 THEN 'DQ' ELSE 'Valid' END">DQ Flag</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="block text-xs font-semibold text-slate-300">Visualisation Format</label>
+                        <select id="pivot-chart-type" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-red-500 font-medium">
+                            <option value="bar">Vertical Bar Chart (with Scrollbar)</option>
+                            <option value="bar_horizontal">Horizontal Bar Chart</option>
+                            <option value="line">Line / Trend Chart</option>
+                            <option value="pie">Donut / Pie Chart</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3 border-t border-slate-800/60">
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-400 mb-1">Series Filter</label>
+                        <select id="pivot-filter-series" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-red-500">
+                            <option value="ALL">All Series</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-400 mb-1">Task Type Filter</label>
+                        <select id="pivot-filter-type" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-red-500">
+                            <option value="ALL">All Types</option>
+                            <option value="Prize">Prize</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Team">Team</option>
+                            <option value="Live">Live</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-400 mb-1">Result Sort Order</label>
+                        <select id="pivot-sort-order" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-red-500">
+                            <option value="DESC">Highest Values First (Desc)</option>
+                            <option value="ASC">Lowest Values First (Asc)</option>
+                            <option value="ALPHA">Alphabetical Dimension</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rendered Custom Chart Canvas with DataZoom Support -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 id="pivot-chart-title" class="text-base font-bold text-slate-100">Custom Visualisation Canvas</h3>
+                    <span id="pivot-record-count" class="text-xs text-slate-400 font-mono">0 rows aggregated</span>
+                </div>
+                <div id="chart-pivot-studio" class="w-full h-[500px]"></div>
+                
+                <div class="pt-3 border-t border-slate-800/60 space-y-1.5">
+                    <span class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Generated Star-Schema ANSI SQL:</span>
+                    <pre id="pivot-sql-display" class="bg-slate-950 p-3 rounded-lg text-xs font-mono text-emerald-400 overflow-x-auto border border-slate-800/80 leading-relaxed"></pre>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- TAB 4: HEAD-TO-HEAD CONTESTANT COMPARATOR                                 -->
+        <!-- ========================================================================= -->
+        <div id="tab-content-h2h" class="hidden space-y-6">
+
+            <!-- Contestant Pickers -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-sm">
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-red-400 uppercase tracking-wider">Contestant A</label>
+                    <select id="h2h-select-a" onchange="renderHeadToHead()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-100 font-semibold focus:outline-none focus:border-red-500"></select>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-amber-400 uppercase tracking-wider">Contestant B</label>
+                    <select id="h2h-select-b" onchange="renderHeadToHead()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-100 font-semibold focus:outline-none focus:border-amber-500"></select>
+                </div>
+            </section>
+
+            <!-- H2H Comparison Summary Cards -->
+            <section id="h2h-metrics-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4"></section>
+
+            <!-- Visual H2H Radar & Trajectory -->
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200">Category Proficiency (Radar Profile)</h3>
+                    <div id="chart-h2h-radar" class="w-full h-80"></div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200">Task Performance Comparison</h3>
+                    <div id="chart-h2h-bars" class="w-full h-80"></div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- AD-HOC ANSI SQL CONSOLE (GLOBAL)                                          -->
+        <!-- ========================================================================= -->
+        <section class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4 shadow-sm">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                    <h2 class="text-base font-semibold text-slate-100">Star-Schema Ad-Hoc SQL Query Console</h2>
+                    <span class="text-xs text-slate-400">Schema: <code>fact_task_scores</code>, <code>dim_contestant</code>, <code>dim_task</code>, <code>dim_series</code></span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs text-slate-400">Presets:</span>
+                    <button onclick="setQueryPreset(1)" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded border border-slate-700">All-Time Top 10</button>
+                    <button onclick="setQueryPreset(2)" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded border border-slate-700">Series Champions</button>
+                    <button onclick="setQueryPreset(3)" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded border border-slate-700">DQ Count</button>
+                </div>
+            </div>
+            
+            <div class="space-y-2">
+                <textarea id="sql-input" rows="3" class="w-full bg-slate-950 font-mono text-xs text-emerald-400 p-4 rounded-lg border border-slate-800 focus:outline-none focus:border-red-500 leading-relaxed" spellcheck="false"></textarea>
+                <div class="flex justify-between items-center">
+                    <button onclick="exportSQLResultsCSV()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg border border-slate-700 transition">
+                        Export Results (CSV)
+                    </button>
+                    <button onclick="runCustomQuery()" class="px-5 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-lg shadow-md transition">
+                        Execute Query
+                    </button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-slate-800 max-h-64">
+                <table class="w-full text-left text-xs font-mono text-slate-300 bg-slate-950">
+                    <thead id="sql-head" class="bg-slate-900 border-b border-slate-800 text-slate-400 sticky top-0"></thead>
+                    <tbody id="sql-body" class="divide-y divide-slate-800/40"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let db = null;
+        let activeTab = 'series';
+        let latestPivotRows = [];
+        let latestSQLRows = [];
+        let cachedDrilldownRows = [];
+
+        // ECharts Instances
+        let chartCumulative = null;
+        let chartTaskType = null;
+        let chartConsistency = null;
+        let chartAllTimeScatter = null;
+        let chartAllTimeWins = null;
+        let chartPivotStudio = null;
+        let chartH2HRadar = null;
+        let chartH2HBars = null;
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            initCharts();
+            await initSQLite();
+            await loadStarSchemaData();
+        });
+
+        // 1. Initialise SQLite Engine
+        async function initSQLite() {
+            const status = document.getElementById('status-indicator');
+            try {
+                const SQL = await initSqlJs({
+                    locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
+                });
+                db = new SQL.Database();
+
+                db.run(`
+                    CREATE TABLE dim_series (series_id INTEGER PRIMARY KEY, episode_count INTEGER);
+                    CREATE TABLE dim_contestant (contestant_id INTEGER PRIMARY KEY, series_id INTEGER, contestant_name TEXT);
+                    CREATE TABLE dim_task (task_id INTEGER PRIMARY KEY, series_id INTEGER, episode_num INTEGER, task_num INTEGER, task_description TEXT, task_type TEXT, is_tiebreaker INTEGER);
+                    CREATE TABLE fact_task_scores (score_id INTEGER PRIMARY KEY, task_id INTEGER, contestant_id INTEGER, series_id INTEGER, episode_num INTEGER, points INTEGER, is_dq INTEGER, is_ep_winner INTEGER);
+                `);
+
+                status.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                status.innerHTML = `<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Engine Online`;
+            } catch (err) {
+                console.error("SQLite Init Error:", err);
+                status.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20";
+                status.innerHTML = `<span class="h-1.5 w-1.5 rounded-full bg-red-400"></span> Engine Failed`;
+            }
+        }
+
+        // 2. Fetch and Load Normalized Star Schema JSON
+        async function loadStarSchemaData() {
+            const summary = document.getElementById('series-data-summary');
+            try {
+                const res = await fetch('./data/star_schema.json');
+                if (!res.ok) throw new Error(`HTTP ${res.status} loading ./data/star_schema.json`);
+                
+                const data = await res.json();
+
+                const sSeries = db.prepare("INSERT INTO dim_series VALUES (?, ?)");
+                data.dim_series.forEach(r => sSeries.run([r.series_id, r.episode_count]));
+                sSeries.free();
+
+                const sCont = db.prepare("INSERT INTO dim_contestant VALUES (?, ?, ?)");
+                data.dim_contestant.forEach(r => sCont.run([r.contestant_id, r.series_id, r.contestant_name]));
+                sCont.free();
+
+                const sTask = db.prepare("INSERT INTO dim_task VALUES (?, ?, ?, ?, ?, ?, ?)");
+                data.dim_task.forEach(r => sTask.run([r.task_id, r.series_id, r.episode_num, r.task_num, r.task_description, r.task_type, r.is_tiebreaker]));
+                sTask.free();
+
+                const sFact = db.prepare("INSERT INTO fact_task_scores VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                data.fact_task_scores.forEach(r => sFact.run([r.score_id, r.task_id, r.contestant_id, r.series_id, r.episode_num, r.points, r.is_dq, r.is_ep_winner]));
+                sFact.free();
+
+                populateSeriesSelector();
+                populatePivotFilters();
+                populateH2HSelectors();
+                onSeriesChange();
+                applyAllTimeFilters();
+                renderPivotStudio();
+                renderHeadToHead();
+
+                summary.innerText = `Star Schema Active: ${data.fact_task_scores.length} facts loaded across ${data.dim_series.length} series.`;
+
+            } catch (err) {
+                console.error("Data Load Error:", err);
+                summary.innerText = "Error loading ./data/star_schema.json. Check file path.";
+            }
+        }
+
+        function queryToObjects(sqlStr) {
+            if (!db) return [];
+            const res = db.exec(sqlStr);
+            if (!res.length) return [];
+            const cols = res[0].columns;
+            return res[0].values.map(val => {
+                const obj = {};
+                cols.forEach((col, idx) => { obj[col] = val[idx]; });
+                return obj;
+            });
+        }
+
+        // Tab Navigation
+        function switchTab(tabId) {
+            activeTab = tabId;
+            const tabs = ['series', 'alltime', 'pivot', 'h2h'];
+
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const content = document.getElementById(`tab-content-${t}`);
+                if (t === tabId) {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg transition-all bg-red-600 text-white shadow-sm shadow-red-900/20 flex items-center gap-1.5 whitespace-nowrap";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-slate-200 flex items-center gap-1.5 whitespace-nowrap";
+                    content.classList.add('hidden');
+                }
+            });
+
+            setTimeout(() => {
+                if (tabId === 'series') {
+                    chartCumulative.resize();
+                    chartTaskType.resize();
+                    chartConsistency.resize();
+                } else if (tabId === 'alltime') {
+                    chartAllTimeScatter.resize();
+                    chartAllTimeWins.resize();
+                } else if (tabId === 'pivot') {
+                    chartPivotStudio.resize();
+                } else if (tabId === 'h2h') {
+                    chartH2HRadar.resize();
+                    chartH2HBars.resize();
+                }
+            }, 50);
+        }
+
+        // =========================================================================
+        // TAB 1: SERIES ANALYSIS LOGIC
+        // =========================================================================
+        function populateSeriesSelector() {
+            const seriesList = queryToObjects("SELECT series_id FROM dim_series ORDER BY series_id");
+            const select = document.getElementById('filter-series');
+            select.innerHTML = '';
+            seriesList.forEach(r => {
+                select.innerHTML += `<option value="${r.series_id}">Series ${r.series_id}</option>`;
+            });
+        }
+
+        function onSeriesChange() {
+            const seriesId = document.getElementById('filter-series').value;
+            const epList = queryToObjects(`SELECT DISTINCT episode_num FROM dim_task WHERE series_id = ${seriesId} ORDER BY episode_num`);
+            const selectEp = document.getElementById('filter-episode');
+            selectEp.innerHTML = '<option value="ALL">All Episodes</option>';
+            epList.forEach(r => {
+                selectEp.innerHTML += `<option value="${r.episode_num}">Episode ${r.episode_num}</option>`;
+            });
+
+            document.getElementById('sql-input').value = `SELECT c.contestant_name, SUM(f.points) as total_points, COUNT(DISTINCT CASE WHEN f.is_ep_winner = 1 THEN f.episode_num END) as ep_wins\nFROM fact_task_scores f\nJOIN dim_contestant c ON f.contestant_id = c.contestant_id\nWHERE f.series_id = ${seriesId}\nGROUP BY c.contestant_id, c.contestant_name\nORDER BY total_points DESC;`;
+
+            applySeriesFilters();
+            runCustomQuery();
+        }
+
+        function applySeriesFilters() {
+            const seriesId = document.getElementById('filter-series').value;
+            const ep = document.getElementById('filter-episode').value;
+            const type = document.getElementById('filter-task-type').value;
+
+            let filterClause = `WHERE f.series_id = ${seriesId}`;
+            if (ep !== 'ALL') filterClause += ` AND f.episode_num = ${ep}`;
+            if (type !== 'ALL') filterClause += ` AND t.task_type = '${type}'`;
+
+            updateSeriesLeaderboard(filterClause);
+            updateSeriesDrilldown(filterClause);
+            updateSeriesCharts(seriesId, filterClause);
+        }
+
+        function updateSeriesLeaderboard(filterClause) {
+            const query = `
+                SELECT 
+                    c.contestant_name,
+                    SUM(f.points) as total_points,
+                    SUM(CASE WHEN t.task_type = 'Prize' THEN f.points ELSE 0 END) as prize_points,
+                    SUM(CASE WHEN t.task_type = 'Normal' THEN f.points ELSE 0 END) as normal_points,
+                    SUM(CASE WHEN t.task_type = 'Team' THEN f.points ELSE 0 END) as team_points,
+                    SUM(CASE WHEN t.task_type = 'Live' THEN f.points ELSE 0 END) as live_points,
+                    COUNT(DISTINCT CASE WHEN f.is_ep_winner = 1 THEN f.episode_num END) as ep_wins,
+                    SUM(CASE WHEN t.is_tiebreaker = 1 AND f.is_ep_winner = 1 THEN 1 ELSE 0 END) as tiebreak_wins,
+                    SUM(f.is_dq) as dq_count
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${filterClause}
+                GROUP BY c.contestant_id, c.contestant_name
+                ORDER BY total_points DESC;
+            `;
+
+            const rows = queryToObjects(query);
+            const tbody = document.getElementById('leaderboard-body');
+            tbody.innerHTML = '';
+
+            rows.forEach(r => {
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="px-6 py-4 font-semibold text-slate-100">${r.contestant_name}</td>
+                        <td class="px-6 py-4 text-right font-black text-red-400">${r.total_points}</td>
+                        <td class="px-6 py-4 text-right">${r.prize_points}</td>
+                        <td class="px-6 py-4 text-right">${r.normal_points}</td>
+                        <td class="px-6 py-4 text-right">${r.team_points}</td>
+                        <td class="px-6 py-4 text-right">${r.live_points}</td>
+                        <td class="px-6 py-4 text-right font-bold text-emerald-400">${r.ep_wins}</td>
+                        <td class="px-6 py-4 text-right text-amber-400">${r.tiebreak_wins}</td>
+                        <td class="px-6 py-4 text-right ${r.dq_count > 0 ? 'text-rose-400 font-bold' : ''}">${r.dq_count}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateSeriesDrilldown(filterClause) {
+            const query = `
+                SELECT f.episode_num, t.task_num, t.task_type, t.task_description, c.contestant_name, f.points, f.is_dq, f.is_ep_winner
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${filterClause}
+                ORDER BY f.episode_num, t.task_num, c.contestant_name;
+            `;
+
+            cachedDrilldownRows = queryToObjects(query);
+            renderFilteredTaskDrilldown(cachedDrilldownRows);
+        }
+
+        function filterTaskDrilldown() {
+            const term = document.getElementById('task-search-input').value.toLowerCase();
+            const filtered = cachedDrilldownRows.filter(r => 
+                r.task_description.toLowerCase().includes(term) || 
+                r.contestant_name.toLowerCase().includes(term) ||
+                r.task_type.toLowerCase().includes(term)
+            );
+            renderFilteredTaskDrilldown(filtered);
+        }
+
+        function renderFilteredTaskDrilldown(rows) {
+            const tbody = document.getElementById('task-drilldown-body');
+            tbody.innerHTML = '';
+
+            rows.forEach(r => {
+                const statusBadge = r.is_dq === 1 
+                    ? `<span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30 font-bold">DQ</span>`
+                    : `<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Valid</span>`;
+
+                const winnerBadge = r.is_ep_winner === 1 
+                    ? `<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold">Winner</span>`
+                    : `<span class="text-slate-600">-</span>`;
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-900">
+                        <td class="px-4 py-2 font-semibold text-slate-400">Ep ${r.episode_num}</td>
+                        <td class="px-4 py-2 text-slate-400">#${r.task_num}</td>
+                        <td class="px-4 py-2"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">${r.task_type}</span></td>
+                        <td class="px-4 py-2 text-slate-200">${r.task_description}</td>
+                        <td class="px-4 py-2 text-slate-300 font-sans font-medium">${r.contestant_name}</td>
+                        <td class="px-4 py-2 text-right font-bold text-slate-100">${r.points}</td>
+                        <td class="px-4 py-2 text-center">${statusBadge}</td>
+                        <td class="px-4 py-2 text-center">${winnerBadge}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateSeriesCharts(seriesId, filterClause) {
+            const cumData = queryToObjects(`
+                SELECT c.contestant_name, f.episode_num, t.task_num, f.points
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${filterClause}
+                ORDER BY f.episode_num, t.task_num;
+            `);
+
+            const contestants = [...new Set(cumData.map(r => r.contestant_name))];
+            const taskLabels = [...new Set(cumData.map(r => `E${r.episode_num}T${r.task_num}`))];
+
+            const cumSeries = contestants.map(c => {
+                let currentTotal = 0;
+                const cPoints = cumData.filter(r => r.contestant_name === c).map(r => {
+                    currentTotal += r.points;
+                    return currentTotal;
+                });
+                return { name: c, type: 'line', smooth: true, data: cPoints, symbolSize: 6 };
+            });
+
+            chartCumulative.setOption({
+                tooltip: { trigger: 'axis' },
+                legend: { textStyle: { color: '#94a3b8' }, top: 0 },
+                grid: { left: '2%', right: '3%', bottom: '5%', containLabel: true },
+                xAxis: { type: 'category', data: taskLabels, axisLine: { lineStyle: { color: '#475569' } } },
+                yAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                series: cumSeries
+            }, true);
+
+            const typeData = queryToObjects(`
+                SELECT c.contestant_name, t.task_type, SUM(f.points) as points
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${filterClause}
+                GROUP BY c.contestant_name, t.task_type;
+            `);
+            const types = ['Prize', 'Normal', 'Team', 'Live', 'Tiebreak'];
+
+            const typeSeries = types.map(t => ({
+                name: t,
+                type: 'bar',
+                stack: 'total',
+                data: contestants.map(c => {
+                    const match = typeData.find(r => r.contestant_name === c && r.task_type === t);
+                    return match ? match.points : 0;
+                })
+            }));
+
+            chartTaskType.setOption({
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                legend: { textStyle: { color: '#94a3b8' }, top: 0 },
+                grid: { left: '3%', right: '4%', bottom: '15%', containLabel: true },
+                xAxis: { 
+                    type: 'category', 
+                    data: contestants, 
+                    axisLabel: { interval: 0, rotate: 15, color: '#cbd5e1', fontSize: 11 },
+                    axisLine: { lineStyle: { color: '#475569' } } 
+                },
+                yAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                series: typeSeries
+            }, true);
+
+            const boxRaw = queryToObjects(`
+                SELECT c.contestant_name, f.points
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${filterClause};
+            `);
+            const boxData = contestants.map(c => {
+                const pts = boxRaw.filter(r => r.contestant_name === c).map(r => r.points).sort((a,b) => a-b);
+                if (!pts.length) return [0,0,0,0,0];
+                return [
+                    Math.min(...pts),
+                    pts[Math.floor(pts.length * 0.25)] || pts[0],
+                    pts[Math.floor(pts.length * 0.5)] || pts[0],
+                    pts[Math.floor(pts.length * 0.75)] || pts[pts.length-1],
+                    Math.max(...pts)
+                ];
+            });
+
+            chartConsistency.setOption({
+                tooltip: { trigger: 'item', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '15%', containLabel: true },
+                xAxis: { 
+                    type: 'category', 
+                    data: contestants, 
+                    axisLabel: { interval: 0, rotate: 15, color: '#cbd5e1', fontSize: 11 },
+                    axisLine: { lineStyle: { color: '#475569' } } 
+                },
+                yAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                series: [{ type: 'boxplot', data: boxData, itemStyle: { borderColor: '#ef4444', color: '#7f1d1d' } }]
+            }, true);
+        }
+
+        // =========================================================================
+        // TAB 2: ALL-TIME HALL OF FAME LOGIC
+        // =========================================================================
+        function applyAllTimeFilters() {
+            const seriesRange = document.getElementById('alltime-filter-series').value;
+            const taskType = document.getElementById('alltime-filter-task-type').value;
+            const minTasks = parseInt(document.getElementById('alltime-filter-min-tasks').value);
+
+            let whereClauses = [];
+            if (seriesRange === '1-5') whereClauses.push('f.series_id BETWEEN 1 AND 5');
+            else if (seriesRange === '6-10') whereClauses.push('f.series_id BETWEEN 6 AND 10');
+            else if (seriesRange === '11-15') whereClauses.push('f.series_id BETWEEN 11 AND 15');
+            else if (seriesRange === '16-25') whereClauses.push('f.series_id >= 16');
+
+            if (taskType !== 'ALL') whereClauses.push(`t.task_type = '${taskType}'`);
+
+            // Check overall series tasks attempted to prevent type-filter blanking
+            if (minTasks > 0) {
+                whereClauses.push(`c.contestant_id IN (
+                    SELECT f2.contestant_id FROM fact_task_scores f2 GROUP BY f2.contestant_id HAVING COUNT(f2.score_id) >= ${minTasks}
+                )`);
+            }
+
+            const whereStr = whereClauses.length > 0 ? 'WHERE ' + whereClauses.join(' AND ') : '';
+
+            updateAllTimeKPIs(whereStr);
+            updateAllTimeLeaderboard(whereStr);
+            updateAllTimeCharts(whereStr);
+        }
+
+        function updateAllTimeKPIs(whereStr) {
+            const kpis = queryToObjects(`
+                SELECT 
+                    COUNT(DISTINCT c.contestant_id) as total_contestants,
+                    COUNT(f.score_id) as total_tasks_scored,
+                    SUM(f.points) as total_points,
+                    SUM(f.is_dq) as total_dqs
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${whereStr};
+            `)[0];
+
+            if (kpis) {
+                document.getElementById('kpi-contestants').innerText = kpis.total_contestants || 0;
+                document.getElementById('kpi-tasks').innerText = kpis.total_tasks_scored || 0;
+                document.getElementById('kpi-points').innerText = kpis.total_points || 0;
+                document.getElementById('kpi-dqs').innerText = kpis.total_dqs || 0;
+            }
+        }
+
+        function updateAllTimeLeaderboard(whereStr) {
+            const sortBy = document.getElementById('alltime-sort').value;
+            let orderClause = "ORDER BY total_points DESC";
+            if (sortBy === 'pts_per_task') orderClause = "ORDER BY pts_per_task DESC";
+            if (sortBy === 'ep_wins') orderClause = "ORDER BY ep_wins DESC, total_points DESC";
+            if (sortBy === 'dq_count') orderClause = "ORDER BY dq_count DESC, total_points DESC";
+
+            const query = `
+                SELECT 
+                    c.contestant_name,
+                    c.series_id,
+                    SUM(f.points) as total_points,
+                    ROUND(CAST(SUM(f.points) AS FLOAT) / COUNT(f.score_id), 2) as pts_per_task,
+                    COUNT(f.score_id) as tasks_attempted,
+                    COUNT(DISTINCT CASE WHEN f.is_ep_winner = 1 THEN f.episode_num END) as ep_wins,
+                    SUM(CASE WHEN t.is_tiebreaker = 1 AND f.is_ep_winner = 1 THEN 1 ELSE 0 END) as tiebreak_wins,
+                    SUM(f.is_dq) as dq_count
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${whereStr}
+                GROUP BY c.contestant_id, c.contestant_name, c.series_id
+                ${orderClause};
+            `;
+
+            const rows = queryToObjects(query);
+            const tbody = document.getElementById('alltime-leaderboard-body');
+            tbody.innerHTML = '';
+
+            rows.forEach((r, idx) => {
+                const rankColor = idx === 0 ? "text-amber-400 font-bold" : (idx === 1 ? "text-slate-300 font-bold" : (idx === 2 ? "text-amber-600 font-bold" : "text-slate-500"));
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-900 transition-colors">
+                        <td class="px-6 py-3.5 ${rankColor}">#${idx + 1}</td>
+                        <td class="px-6 py-3.5 font-sans font-semibold text-slate-100">${r.contestant_name}</td>
+                        <td class="px-6 py-3.5 text-slate-400">Series ${r.series_id}</td>
+                        <td class="px-6 py-3.5 text-right font-bold text-red-400">${r.total_points}</td>
+                        <td class="px-6 py-3.5 text-right font-semibold text-emerald-400">${r.pts_per_task}</td>
+                        <td class="px-6 py-3.5 text-right text-slate-400">${r.tasks_attempted}</td>
+                        <td class="px-6 py-3.5 text-right font-bold text-slate-200">${r.ep_wins}</td>
+                        <td class="px-6 py-3.5 text-right text-amber-400">${r.tiebreak_wins}</td>
+                        <td class="px-6 py-3.5 text-right ${r.dq_count > 0 ? 'text-rose-400 font-bold' : 'text-slate-500'}">${r.dq_count}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateAllTimeCharts(whereStr) {
+            const scatterRows = queryToObjects(`
+                SELECT 
+                    c.contestant_name,
+                    c.series_id,
+                    SUM(f.points) as total_points,
+                    COUNT(f.score_id) as tasks_attempted,
+                    ROUND(CAST(SUM(f.points) AS FLOAT) / COUNT(f.score_id), 2) as pts_per_task,
+                    COUNT(DISTINCT CASE WHEN f.is_ep_winner = 1 THEN f.episode_num END) as ep_wins
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${whereStr}
+                GROUP BY c.contestant_id, c.contestant_name, c.series_id;
+            `);
+
+            const scatterData = scatterRows.map(r => [
+                r.tasks_attempted,
+                r.total_points,
+                r.pts_per_task,
+                r.contestant_name,
+                r.series_id,
+                r.ep_wins
+            ]);
+
+            chartAllTimeScatter.setOption({
+                tooltip: {
+                    formatter: params => {
+                        const d = params.value;
+                        return `<b>${d[3]}</b> (Series ${d[4]})<br/>Total Points: <b>${d[1]}</b><br/>Tasks: <b>${d[0]}</b><br/>Pts / Task: <b>${d[2]}</b><br/>Episode Wins: <b>${d[5]}</b>`;
+                    }
+                },
+                grid: { left: '4%', right: '5%', bottom: '8%', containLabel: true },
+                xAxis: { name: 'Tasks Attempted', type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                yAxis: { name: 'Total Points', type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                series: [{
+                    type: 'scatter',
+                    symbolSize: val => Math.max(10, val[2] * 4.5),
+                    data: scatterData,
+                    itemStyle: {
+                        color: params => params.value[2] >= 3.2 ? '#22c55e' : (params.value[2] >= 2.8 ? '#eab308' : '#ef4444')
+                    }
+                }]
+            }, true);
+
+            const topWinners = queryToObjects(`
+                SELECT 
+                    c.contestant_name || ' (S' || c.series_id || ')' as label,
+                    COUNT(DISTINCT f.episode_num) as ep_wins
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                ${whereStr}
+                AND f.is_ep_winner = 1
+                GROUP BY c.contestant_id, c.contestant_name, c.series_id
+                ORDER BY ep_wins DESC
+                LIMIT 20;
+            `).reverse();
+
+            chartAllTimeWins.setOption({
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '5%', bottom: '5%', containLabel: true },
+                xAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                yAxis: { 
+                    type: 'category', 
+                    data: topWinners.map(r => r.label), 
+                    axisLabel: { interval: 0, color: '#cbd5e1', fontSize: 11 },
+                    axisLine: { lineStyle: { color: '#475569' } } 
+                },
+                series: [{
+                    type: 'bar',
+                    data: topWinners.map(r => r.ep_wins),
+                    itemStyle: { color: '#dc2626' }
+                }]
+            }, true);
+        }
+
+        // =========================================================================
+        // TAB 3: SELF-SERVICE VISUAL PIVOT STUDIO LOGIC (With DataZoom Scrollbar)
+        // =========================================================================
+        function populatePivotFilters() {
+            const seriesList = queryToObjects("SELECT series_id FROM dim_series ORDER BY series_id");
+            const select = document.getElementById('pivot-filter-series');
+            select.innerHTML = '<option value="ALL">All Series</option>';
+            seriesList.forEach(r => {
+                select.innerHTML += `<option value="${r.series_id}">Series ${r.series_id}</option>`;
+            });
+        }
+
+        function renderPivotStudio() {
+            const dimExpr = document.getElementById('pivot-dim').value;
+            const measureExpr = document.getElementById('pivot-measure').value;
+            const legendExpr = document.getElementById('pivot-legend').value;
+            const chartFormat = document.getElementById('pivot-chart-type').value;
+            const filterSeries = document.getElementById('pivot-filter-series').value;
+            const filterType = document.getElementById('pivot-filter-type').value;
+            const sortOrder = document.getElementById('pivot-sort-order').value;
+
+            let whereClauses = [];
+            if (filterSeries !== 'ALL') whereClauses.push(`f.series_id = ${filterSeries}`);
+            if (filterType !== 'ALL') whereClauses.push(`t.task_type = '${filterType}'`);
+            const whereStr = whereClauses.length > 0 ? 'WHERE ' + whereClauses.join(' AND ') : '';
+
+            let orderClause = "ORDER BY metric_val DESC";
+            if (sortOrder === "ASC") orderClause = "ORDER BY metric_val ASC";
+            else if (sortOrder === "ALPHA") orderClause = "ORDER BY dim_val ASC";
+
+            let sqlQuery = "";
+            if (legendExpr === "NONE") {
+                sqlQuery = `
+                    SELECT 
+                        ${dimExpr} as dim_val,
+                        ${measureExpr} as metric_val
+                    FROM fact_task_scores f
+                    JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                    JOIN dim_task t ON f.task_id = t.task_id
+                    ${whereStr}
+                    GROUP BY dim_val
+                    ${orderClause};
+                `.trim();
+            } else {
+                sqlQuery = `
+                    SELECT 
+                        ${dimExpr} as dim_val,
+                        ${legendExpr} as legend_val,
+                        ${measureExpr} as metric_val
+                    FROM fact_task_scores f
+                    JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                    JOIN dim_task t ON f.task_id = t.task_id
+                    ${whereStr}
+                    GROUP BY dim_val, legend_val
+                    ORDER BY dim_val, legend_val;
+                `.trim();
+            }
+
+            document.getElementById('pivot-sql-display').innerText = sqlQuery;
+
+            const rows = queryToObjects(sqlQuery);
+            latestPivotRows = rows;
+            document.getElementById('pivot-record-count').innerText = `${rows.length} total categories`;
+
+            if (legendExpr === "NONE") {
+                const categories = rows.map(r => r.dim_val);
+                const values = rows.map(r => r.metric_val);
+
+                // Auto-configure DataZoom range based on category count
+                const zoomEnd = categories.length > 15 ? (15 / categories.length) * 100 : 100;
+
+                if (chartFormat === 'pie') {
+                    chartPivotStudio.setOption({
+                        tooltip: { trigger: 'item' },
+                        legend: { type: 'scroll', orient: 'vertical', left: 'left', textStyle: { color: '#94a3b8' } },
+                        series: [{
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: { borderRadius: 6, borderColor: '#020617', borderWidth: 2 },
+                            data: rows.map(r => ({ name: r.dim_val, value: r.metric_val }))
+                        }]
+                    }, true);
+                } else if (chartFormat === 'bar_horizontal') {
+                    chartPivotStudio.setOption({
+                        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                        grid: { left: '3%', right: '5%', bottom: '5%', containLabel: true },
+                        xAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                        yAxis: { 
+                            type: 'category', 
+                            data: [...categories].reverse(), 
+                            axisLabel: { interval: 0, color: '#cbd5e1' },
+                            axisLine: { lineStyle: { color: '#475569' } } 
+                        },
+                        dataZoom: [{ type: 'slider', yAxisIndex: 0, start: Math.max(0, 100 - zoomEnd), end: 100, textStyle: { color: '#94a3b8' } }],
+                        series: [{ type: 'bar', data: [...values].reverse(), itemStyle: { color: '#dc2626' } }]
+                    }, true);
+                } else {
+                    chartPivotStudio.setOption({
+                        tooltip: { trigger: 'axis' },
+                        grid: { left: '3%', right: '3%', bottom: '15%', containLabel: true },
+                        xAxis: { 
+                            type: 'category', 
+                            data: categories, 
+                            axisLabel: { interval: 0, rotate: 25, color: '#cbd5e1', fontSize: 11 },
+                            axisLine: { lineStyle: { color: '#475569' } } 
+                        },
+                        yAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                        dataZoom: [
+                            { type: 'slider', show: categories.length > 15, start: 0, end: zoomEnd, bottom: 0, textStyle: { color: '#94a3b8' } },
+                            { type: 'inside', start: 0, end: zoomEnd }
+                        ],
+                        series: [{ 
+                            type: chartFormat === 'line' ? 'line' : 'bar', 
+                            data: values, 
+                            itemStyle: { color: '#dc2626' }, 
+                            smooth: true 
+                        }]
+                    }, true);
+                }
+            } else {
+                const categories = [...new Set(rows.map(r => r.dim_val))];
+                const legends = [...new Set(rows.map(r => r.legend_val))];
+                const zoomEnd = categories.length > 15 ? (15 / categories.length) * 100 : 100;
+
+                const seriesList = legends.map(leg => ({
+                    name: leg,
+                    type: chartFormat === 'line' ? 'line' : 'bar',
+                    stack: chartFormat === 'line' ? null : 'total',
+                    data: categories.map(cat => {
+                        const match = rows.find(r => r.dim_val === cat && r.legend_val === leg);
+                        return match ? match.metric_val : 0;
+                    }),
+                    smooth: true
+                }));
+
+                chartPivotStudio.setOption({
+                    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                    legend: { textStyle: { color: '#94a3b8' }, top: 0 },
+                    grid: { left: '3%', right: '3%', bottom: '15%', containLabel: true },
+                    xAxis: { 
+                        type: 'category', 
+                        data: categories, 
+                        axisLabel: { interval: 0, rotate: 25, color: '#cbd5e1', fontSize: 11 },
+                        axisLine: { lineStyle: { color: '#475569' } } 
+                    },
+                    yAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                    dataZoom: [
+                        { type: 'slider', show: categories.length > 15, start: 0, end: zoomEnd, bottom: 0, textStyle: { color: '#94a3b8' } },
+                        { type: 'inside', start: 0, end: zoomEnd }
+                    ],
+                    series: seriesList
+                }, true);
+            }
+        }
+
+        function exportPivotDataCSV() {
+            if (!latestPivotRows || !latestPivotRows.length) return;
+            const cols = Object.keys(latestPivotRows[0]);
+            let csv = cols.join(",") + "\n";
+            latestPivotRows.forEach(r => {
+                csv += cols.map(c => `"${r[c]}"`).join(",") + "\n";
+            });
+            downloadCSVBlob(csv, "taskmaster_pivot_export.csv");
+        }
+
+        // =========================================================================
+        // TAB 4: HEAD-TO-HEAD COMPARISON LOGIC
+        // =========================================================================
+        function populateH2HSelectors() {
+            const contestants = queryToObjects("SELECT DISTINCT contestant_id, contestant_name, series_id FROM dim_contestant ORDER BY series_id, contestant_name");
+            const selectA = document.getElementById('h2h-select-a');
+            const selectB = document.getElementById('h2h-select-b');
+            selectA.innerHTML = '';
+            selectB.innerHTML = '';
+
+            contestants.forEach((c, idx) => {
+                const optA = `<option value="${c.contestant_id}" ${idx === 0 ? 'selected' : ''}>${c.contestant_name} (Series ${c.series_id})</option>`;
+                const optB = `<option value="${c.contestant_id}" ${idx === 1 ? 'selected' : ''}>${c.contestant_name} (Series ${c.series_id})</option>`;
+                selectA.innerHTML += optA;
+                selectB.innerHTML += optB;
+            });
+        }
+
+        function renderHeadToHead() {
+            const idA = document.getElementById('h2h-select-a').value;
+            const idB = document.getElementById('h2h-select-b').value;
+
+            const statsA = getContestantProfile(idA);
+            const statsB = getContestantProfile(idB);
+
+            // 1. Render Comparison Metric Cards
+            const grid = document.getElementById('h2h-metrics-grid');
+            grid.innerHTML = `
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <span class="text-xs text-slate-400 uppercase font-semibold">Total Points</span>
+                    <div class="flex justify-between items-baseline">
+                        <span class="text-lg font-black text-red-400">${statsA.total_points}</span>
+                        <span class="text-xs text-slate-500 font-mono">vs</span>
+                        <span class="text-lg font-black text-amber-400">${statsB.total_points}</span>
+                    </div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <span class="text-xs text-slate-400 uppercase font-semibold">Pts / Task</span>
+                    <div class="flex justify-between items-baseline">
+                        <span class="text-lg font-black text-red-400">${statsA.pts_per_task}</span>
+                        <span class="text-xs text-slate-500 font-mono">vs</span>
+                        <span class="text-lg font-black text-amber-400">${statsB.pts_per_task}</span>
+                    </div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <span class="text-xs text-slate-400 uppercase font-semibold">Episode Wins</span>
+                    <div class="flex justify-between items-baseline">
+                        <span class="text-lg font-black text-red-400">${statsA.ep_wins}</span>
+                        <span class="text-xs text-slate-500 font-mono">vs</span>
+                        <span class="text-lg font-black text-amber-400">${statsB.ep_wins}</span>
+                    </div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <span class="text-xs text-slate-400 uppercase font-semibold">DQ Count</span>
+                    <div class="flex justify-between items-baseline">
+                        <span class="text-lg font-black text-red-400">${statsA.dq_count}</span>
+                        <span class="text-xs text-slate-500 font-mono">vs</span>
+                        <span class="text-lg font-black text-amber-400">${statsB.dq_count}</span>
+                    </div>
+                </div>
+            `;
+
+            // 2. Render Category Radar Profile
+            chartH2HRadar.setOption({
+                tooltip: {},
+                legend: { data: [statsA.name, statsB.name], textStyle: { color: '#94a3b8' }, top: 0 },
+                radar: {
+                    indicator: [
+                        { name: 'Prize Avg', max: 5 },
+                        { name: 'Normal Avg', max: 5 },
+                        { name: 'Team Avg', max: 5 },
+                        { name: 'Live Avg', max: 5 },
+                        { name: 'Overall Pts/Task', max: 5 }
+                    ],
+                    splitLine: { lineStyle: { color: '#334155' } },
+                    splitArea: { show: false },
+                    axisLine: { lineStyle: { color: '#475569' } }
+                },
+                series: [{
+                    type: 'radar',
+                    data: [
+                        { value: [statsA.prize_avg, statsA.normal_avg, statsA.team_avg, statsA.live_avg, statsA.pts_per_task], name: statsA.name, itemStyle: { color: '#ef4444' } },
+                        { value: [statsB.prize_avg, statsB.normal_avg, statsB.team_avg, statsB.live_avg, statsB.pts_per_task], name: statsB.name, itemStyle: { color: '#eab308' } }
+                    ]
+                }]
+            }, true);
+
+            // 3. Render Points Breakdown Bars
+            chartH2HBars.setOption({
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                legend: { textStyle: { color: '#94a3b8' }, top: 0 },
+                grid: { left: '3%', right: '4%', bottom: '5%', containLabel: true },
+                xAxis: { type: 'category', data: ['Prize', 'Normal', 'Team', 'Live'], axisLine: { lineStyle: { color: '#475569' } } },
+                yAxis: { type: 'value', axisLine: { lineStyle: { color: '#475569' } }, splitLine: { lineStyle: { color: '#1e293b' } } },
+                series: [
+                    { name: statsA.name, type: 'bar', data: [statsA.prize_pts, statsA.normal_pts, statsA.team_pts, statsA.live_pts], itemStyle: { color: '#ef4444' } },
+                    { name: statsB.name, type: 'bar', data: [statsB.prize_pts, statsB.normal_pts, statsB.team_pts, statsB.live_pts], itemStyle: { color: '#eab308' } }
+                ]
+            }, true);
+        }
+
+        function getContestantProfile(cId) {
+            const rows = queryToObjects(`
+                SELECT 
+                    c.contestant_name,
+                    SUM(f.points) as total_points,
+                    COUNT(f.score_id) as total_tasks,
+                    ROUND(AVG(f.points), 2) as pts_per_task,
+                    SUM(f.is_dq) as dq_count,
+                    COUNT(DISTINCT CASE WHEN f.is_ep_winner = 1 THEN f.episode_num END) as ep_wins,
+                    SUM(CASE WHEN t.task_type = 'Prize' THEN f.points ELSE 0 END) as prize_pts,
+                    ROUND(AVG(CASE WHEN t.task_type = 'Prize' THEN f.points END), 2) as prize_avg,
+                    SUM(CASE WHEN t.task_type = 'Normal' THEN f.points ELSE 0 END) as normal_pts,
+                    ROUND(AVG(CASE WHEN t.task_type = 'Normal' THEN f.points END), 2) as normal_avg,
+                    SUM(CASE WHEN t.task_type = 'Team' THEN f.points ELSE 0 END) as team_pts,
+                    ROUND(AVG(CASE WHEN t.task_type = 'Team' THEN f.points END), 2) as team_avg,
+                    SUM(CASE WHEN t.task_type = 'Live' THEN f.points ELSE 0 END) as live_pts,
+                    ROUND(AVG(CASE WHEN t.task_type = 'Live' THEN f.points END), 2) as live_avg
+                FROM fact_task_scores f
+                JOIN dim_contestant c ON f.contestant_id = c.contestant_id
+                JOIN dim_task t ON f.task_id = t.task_id
+                WHERE c.contestant_id = ${cId}
+                GROUP BY c.contestant_id;
+            `);
+
+            return rows.length ? {
+                name: rows[0].contestant_name,
+                total_points: rows[0].total_points || 0,
+                total_tasks: rows[0].total_tasks || 0,
+                pts_per_task: rows[0].pts_per_task || 0,
+                dq_count: rows[0].dq_count || 0,
+                ep_wins: rows[0].ep_wins || 0,
+                prize_pts: rows[0].prize_pts || 0,
+                prize_avg: rows[0].prize_avg || 0,
+                normal_pts: rows[0].normal_pts || 0,
+                normal_avg: rows[0].normal_avg || 0,
+                team_pts: rows[0].team_pts || 0,
+                team_avg: rows[0].team_avg || 0,
+                live_pts: rows[0].live_pts || 0,
+                live_avg: rows[0].live_avg || 0
+            } : { name: "N/A", total_points: 0, pts_per_task: 0, ep_wins: 0, dq_count: 0, prize_avg: 0, normal_avg: 0, team_avg: 0, live_avg: 0, prize_pts: 0, normal_pts: 0, team_pts: 0, live_pts: 0 };
+        }
+
+        // =========================================================================
+        // GLOBAL INITIALISATION & SQL EXPORTS
+        // =========================================================================
+        function initCharts() {
+            chartCumulative = echarts.init(document.getElementById('chart-cumulative'));
+            chartTaskType = echarts.init(document.getElementById('chart-task-type'));
+            chartConsistency = echarts.init(document.getElementById('chart-consistency'));
+            chartAllTimeScatter = echarts.init(document.getElementById('chart-alltime-scatter'));
+            chartAllTimeWins = echarts.init(document.getElementById('chart-alltime-wins'));
+            chartPivotStudio = echarts.init(document.getElementById('chart-pivot-studio'));
+            chartH2HRadar = echarts.init(document.getElementById('chart-h2h-radar'));
+            chartH2HBars = echarts.init(document.getElementById('chart-h2h-bars'));
+
+            window.addEventListener('resize', () => {
+                chartCumulative.resize();
+                chartTaskType.resize();
+                chartConsistency.resize();
+                chartAllTimeScatter.resize();
+                chartAllTimeWins.resize();
+                chartPivotStudio.resize();
+                chartH2HRadar.resize();
+                chartH2HBars.resize();
+            });
+        }
+
+        function runCustomQuery() {
+            if (!db) return;
+            const sql = document.getElementById('sql-input').value;
+            const head = document.getElementById('sql-head');
+            const body = document.getElementById('sql-body');
+
+            try {
+                const rows = queryToObjects(sql);
+                latestSQLRows = rows;
+                if (rows.length === 0) {
+                    head.innerHTML = '<tr><th class="px-4 py-2">0 rows returned.</th></tr>';
+                    body.innerHTML = '';
+                    return;
+                }
+                const cols = Object.keys(rows[0]);
+                head.innerHTML = `<tr>${cols.map(c => `<th class="px-4 py-2">${c}</th>`).join('')}</tr>`;
+                body.innerHTML = rows.map(r => `
+                    <tr class="hover:bg-slate-900">${cols.map(c => `<td class="px-4 py-2">${r[c]}</td>`).join('')}</tr>
+                `).join('');
+            } catch (err) {
+                head.innerHTML = `<tr><th class="px-4 py-2 text-red-400">SQL Error: ${err.message}</th></tr>`;
+                body.innerHTML = '';
+            }
+        }
+
+        function exportSQLResultsCSV() {
+            if (!latestSQLRows || !latestSQLRows.length) return;
+            const cols = Object.keys(latestSQLRows[0]);
+            let csv = cols.join(",") + "\n";
+            latestSQLRows.forEach(r => {
+                csv += cols.map(c => `"${r[c]}"`).join(",") + "\n";
+            });
+            downloadCSVBlob(csv, "taskmaster_sql_results.csv");
+        }
+
+        function downloadCSVBlob(csvContent, filename) {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", filename);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function setQueryPreset(id) {
+            const input = document.getElementById('sql-input');
+            if (id === 1) {
+                input.value = `SELECT c.contestant_name, c.series_id, SUM(f.points) as total_points, ROUND(CAST(SUM(f.points) AS FLOAT)/COUNT(f.score_id), 2) as pts_per_task\nFROM fact_task_scores f\nJOIN dim_contestant c ON f.contestant_id = c.contestant_id\nGROUP BY c.contestant_id, c.contestant_name, c.series_id\nORDER BY total_points DESC\nLIMIT 10;`;
+            } else if (id === 2) {
+                input.value = `SELECT c.series_id, c.contestant_name, SUM(f.points) as series_total\nFROM fact_task_scores f\nJOIN dim_contestant c ON f.contestant_id = c.contestant_id\nGROUP BY c.series_id, c.contestant_name\nHAVING SUM(f.points) = (\n    SELECT MAX(sub_total) \n    FROM (\n        SELECT SUM(points) as sub_total \n        FROM fact_task_scores f2 \n        WHERE f2.series_id = c.series_id \n        GROUP BY f2.contestant_id\n    )\n)\nORDER BY c.series_id ASC;`;
+            } else if (id === 3) {
+                input.value = `SELECT c.contestant_name, c.series_id, SUM(f.is_dq) as total_dqs\nFROM fact_task_scores f\nJOIN dim_contestant c ON f.contestant_id = c.contestant_id\nGROUP BY c.contestant_id, c.contestant_name, c.series_id\nHAVING total_dqs > 0\nORDER BY total_dqs DESC;`;
+            }
+            runCustomQuery();
+        }
+    </script>
+</body>
+</html>
