@@ -1705,25 +1705,30 @@
 8,4,1,Prize: Best present for a doctor.,Prize,Paul Sinha,1,0,0,0
 8,4,1,Prize: Best present for a doctor.,Prize,Sian Gibson,5,0,0,0
 8,4,2,Get this loo roll through the toilet seat. You must not lower the toilet seat.,Normal,Iain Stirling,5,0,0,0
-8,4,2,Get this loo roll through the toilet seat. You must not lower the toilet seat.,Normal,Joe Thomas,4,0,0,1
+8,4,2,Get this loo roll through the toilet seat. You must not lower the toilet seat.,Normal,Joe Thomas,3,0,0,1
 8,4,2,Get this loo roll through the toilet seat. You must not lower the toilet seat.,Normal,Lou Sanders,4,0,0,0
 8,4,2,Get this loo roll through the toilet seat. You must not lower the toilet seat.,Normal,Paul Sinha,1,0,0,0
 8,4,2,Get this loo roll through the toilet seat. You must not lower the toilet seat.,Normal,Sian Gibson,2,0,0,0
-8,4,3,Make the best thing to engage a toddler.,Normal,Iain Stirling,4,0,0,0
-8,4,3,Make the best thing to engage a toddler.,Normal,Joe Thomas,4,0,0,1
-8,4,3,Make the best thing to engage a toddler.,Normal,Lou Sanders,3,0,0,0
-8,4,3,Make the best thing to engage a toddler.,Normal,Paul Sinha,5,0,0,0
-8,4,3,Make the best thing to engage a toddler.,Normal,Sian Gibson,5,0,0,0
-8,4,4,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Iain Stirling,0,1,0,0
-8,4,4,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Joe Thomas,3,0,0,1
-8,4,4,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Lou Sanders,0,1,0,0
-8,4,4,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Paul Sinha,0,1,0,0
-8,4,4,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Sian Gibson,3,0,0,0
-8,4,5,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Iain Stirling,0,0,0,0
-8,4,5,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Joe Thomas,0,0,0,1
-8,4,5,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Lou Sanders,5,0,0,0
-8,4,5,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Paul Sinha,4,0,0,0
-8,4,5,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Sian Gibson,0,0,0,0
+8,4,3,Bonus: For getting the full loo roll through the toilet seat,Normal,Iain Stirling,0,0,0,0
+8,4,3,Bonus: For getting the full loo roll through the toilet seat,Normal,Joe Thomas,1,0,0,1
+8,4,3,Bonus: For getting the full loo roll through the toilet seat,Normal,Lou Sanders,0,0,0,0
+8,4,3,Bonus: For getting the full loo roll through the toilet seat,Normal,Paul Sinha,0,0,0,0
+8,4,3,Bonus: For getting the full loo roll through the toilet seat,Normal,Sian Gibson,0,0,0,0
+8,4,4,Make the best thing to engage a toddler.,Normal,Iain Stirling,4,0,0,0
+8,4,4,Make the best thing to engage a toddler.,Normal,Joe Thomas,4,0,0,1
+8,4,4,Make the best thing to engage a toddler.,Normal,Lou Sanders,3,0,0,0
+8,4,4,Make the best thing to engage a toddler.,Normal,Paul Sinha,5,0,0,0
+8,4,4,Make the best thing to engage a toddler.,Normal,Sian Gibson,5,0,0,0
+8,4,5,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Iain Stirling,0,1,0,0
+8,4,5,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Joe Thomas,3,0,0,1
+8,4,5,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Lou Sanders,0,1,0,0
+8,4,5,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Paul Sinha,0,1,0,0
+8,4,5,"Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",Team,Sian Gibson,3,0,0,0
+8,4,6,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Iain Stirling,0,0,0,0
+8,4,6,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Joe Thomas,0,0,0,1
+8,4,6,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Lou Sanders,5,0,0,0
+8,4,6,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Paul Sinha,4,0,0,0
+8,4,6,"Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",Live,Sian Gibson,0,0,0,0
 8,5,1,Prize: Best face.,Prize,Iain Stirling,5,0,0,1
 8,5,1,Prize: Best face.,Prize,Joe Thomas,1,0,0,0
 8,5,1,Prize: Best face.,Prize,Lou Sanders,2,0,0,0

@@ -20478,7 +20478,7 @@
     "task_description": "Get this loo roll through the toilet seat. You must not lower the toilet seat.",
     "task_type": "Normal",
     "contestant_name": "Joe Thomas",
-    "points": 4,
+    "points": 3,
     "is_dq": 0,
     "is_tiebreaker": 0,
     "is_ep_winner": 1
@@ -20523,6 +20523,66 @@
     "series_id": 8,
     "episode_num": 4,
     "task_num": 3,
+    "task_description": "Bonus: For getting the full loo roll through the toilet seat",
+    "task_type": "Normal",
+    "contestant_name": "Iain Stirling",
+    "points": 0,
+    "is_dq": 0,
+    "is_tiebreaker": 0,
+    "is_ep_winner": 0
+  },
+  {
+    "series_id": 8,
+    "episode_num": 4,
+    "task_num": 3,
+    "task_description": "Bonus: For getting the full loo roll through the toilet seat",
+    "task_type": "Normal",
+    "contestant_name": "Joe Thomas",
+    "points": 1,
+    "is_dq": 0,
+    "is_tiebreaker": 0,
+    "is_ep_winner": 1
+  },
+  {
+    "series_id": 8,
+    "episode_num": 4,
+    "task_num": 3,
+    "task_description": "Bonus: For getting the full loo roll through the toilet seat",
+    "task_type": "Normal",
+    "contestant_name": "Lou Sanders",
+    "points": 0,
+    "is_dq": 0,
+    "is_tiebreaker": 0,
+    "is_ep_winner": 0
+  },
+  {
+    "series_id": 8,
+    "episode_num": 4,
+    "task_num": 3,
+    "task_description": "Bonus: For getting the full loo roll through the toilet seat",
+    "task_type": "Normal",
+    "contestant_name": "Paul Sinha",
+    "points": 0,
+    "is_dq": 0,
+    "is_tiebreaker": 0,
+    "is_ep_winner": 0
+  },
+  {
+    "series_id": 8,
+    "episode_num": 4,
+    "task_num": 3,
+    "task_description": "Bonus: For getting the full loo roll through the toilet seat",
+    "task_type": "Normal",
+    "contestant_name": "Sian Gibson",
+    "points": 0,
+    "is_dq": 0,
+    "is_tiebreaker": 0,
+    "is_ep_winner": 0
+  },
+  {
+    "series_id": 8,
+    "episode_num": 4,
+    "task_num": 4,
     "task_description": "Make the best thing to engage a toddler.",
     "task_type": "Normal",
     "contestant_name": "Iain Stirling",
@@ -20534,7 +20594,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 3,
+    "task_num": 4,
     "task_description": "Make the best thing to engage a toddler.",
     "task_type": "Normal",
     "contestant_name": "Joe Thomas",
@@ -20546,7 +20606,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 3,
+    "task_num": 4,
     "task_description": "Make the best thing to engage a toddler.",
     "task_type": "Normal",
     "contestant_name": "Lou Sanders",
@@ -20558,7 +20618,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 3,
+    "task_num": 4,
     "task_description": "Make the best thing to engage a toddler.",
     "task_type": "Normal",
     "contestant_name": "Paul Sinha",
@@ -20570,7 +20630,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 3,
+    "task_num": 4,
     "task_description": "Make the best thing to engage a toddler.",
     "task_type": "Normal",
     "contestant_name": "Sian Gibson",
@@ -20582,7 +20642,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 4,
+    "task_num": 5,
     "task_description": "Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",
     "task_type": "Team",
     "contestant_name": "Iain Stirling",
@@ -20594,7 +20654,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 4,
+    "task_num": 5,
     "task_description": "Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",
     "task_type": "Team",
     "contestant_name": "Joe Thomas",
@@ -20606,7 +20666,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 4,
+    "task_num": 5,
     "task_description": "Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",
     "task_type": "Team",
     "contestant_name": "Lou Sanders",
@@ -20618,7 +20678,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 4,
+    "task_num": 5,
     "task_description": "Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",
     "task_type": "Team",
     "contestant_name": "Paul Sinha",
@@ -20630,7 +20690,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 4,
+    "task_num": 5,
     "task_description": "Team: Put the most weight in the hammock without anything falling out of the hammock. If anything falls out of the hammock, you are disqualified.",
     "task_type": "Team",
     "contestant_name": "Sian Gibson",
@@ -20642,7 +20702,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 5,
+    "task_num": 6,
     "task_description": "Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",
     "task_type": "Live",
     "contestant_name": "Iain Stirling",
@@ -20654,7 +20714,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 5,
+    "task_num": 6,
     "task_description": "Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",
     "task_type": "Live",
     "contestant_name": "Joe Thomas",
@@ -20666,7 +20726,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 5,
+    "task_num": 6,
     "task_description": "Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",
     "task_type": "Live",
     "contestant_name": "Lou Sanders",
@@ -20678,7 +20738,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 5,
+    "task_num": 6,
     "task_description": "Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",
     "task_type": "Live",
     "contestant_name": "Paul Sinha",
@@ -20690,7 +20750,7 @@
   {
     "series_id": 8,
     "episode_num": 4,
-    "task_num": 5,
+    "task_num": 6,
     "task_description": "Live: Choose a hoop that you think you can throw a frying pan into. Choose a distance from which you can throw a frying pan into that hoop. If you choose the big hoop, you have one attempt. If you choose the medium hoop, you have two attempts. If you choose the small hoop, you have three attempts. | Standing behind this rope, whip the bottle off the barrel.",
     "task_type": "Live",
     "contestant_name": "Sian Gibson",
