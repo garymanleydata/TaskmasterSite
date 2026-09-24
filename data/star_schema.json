@@ -5534,7 +5534,7 @@
       "series_id": 12,
       "episode_num": 1,
       "task_num": 2,
-      "task_description": "Strike Alex with a ball. Alex may not run, hide or leave the Taskmaster grounds. Fastest wins.",
+      "task_description": "Strike Alex with a ball. Alex may not run, hide or leave the Taskmaster grounds.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5561,7 +5561,7 @@
       "series_id": 12,
       "episode_num": 1,
       "task_num": 5,
-      "task_description": "Pop the balloon. You must stay behind the rope at all times. You must not move the rope. You may buy the tools you need with time. Fastest wins.",
+      "task_description": "Pop the balloon. You must stay behind the rope at all times. You must not move the rope. You may buy the tools you need with time.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5588,7 +5588,7 @@
       "series_id": 12,
       "episode_num": 2,
       "task_num": 2,
-      "task_description": "Team: Scale the mountain. Your attempt must last exactly five minutes and will be sped up by five times afterwards. Most thrilling ascent wins.",
+      "task_description": "Team: Scale the mountain. Your attempt must last exactly five minutes and will be sped up by five times afterwards.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -5606,7 +5606,7 @@
       "series_id": 12,
       "episode_num": 2,
       "task_num": 4,
-      "task_description": "Completely paint this space hopper green without making any mess. The entire space hopper must be green. The entire space hopper must stay in the dome. When you are satisfied that you are finished, put your hands on your hips and bow deeply at your green space hopper. Fastest and least messy wins.",
+      "task_description": "Completely paint this space hopper green without making any mess. The entire space hopper must be green. The entire space hopper must stay in the dome. When you are satisfied that you are finished, put your hands on your hips and bow deeply at your green space hopper.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5615,7 +5615,7 @@
       "series_id": 12,
       "episode_num": 2,
       "task_num": 5,
-      "task_description": "Live: Put on the medallion. You must not take off your jacket or break the box. Fastest wins.",
+      "task_description": "Live: Put on the medallion. You must not take off your jacket or break the box.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5633,7 +5633,7 @@
       "series_id": 12,
       "episode_num": 3,
       "task_num": 2,
-      "task_description": "Copy Alex. Alex will demonstrate his actions twice, then you will have one attempt to copy Alex. Closest copy wins.",
+      "task_description": "Copy Alex. Alex will demonstrate his actions twice, then you will have one attempt to copy Alex.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5669,7 +5669,7 @@
       "series_id": 12,
       "episode_num": 3,
       "task_num": 6,
-      "task_description": "Team Live: Correctly guess your teammate's object. Your teammate will represent their object through the medium of shadows on the screen. Fastest correct guess wins two actual points per round.",
+      "task_description": "Team Live: Correctly guess your teammate's object. Your teammate will represent their object through the medium of shadows on the screen.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5687,7 +5687,7 @@
       "series_id": 12,
       "episode_num": 4,
       "task_num": 2,
-      "task_description": "Complete the course as slowly as possible. You must be riding the bicycle forwards within the limits of the course at all times. Every time you put a foot on the ground, the clock will be paused and your final time will be halved. If you leave the course or miss an instruction, your time will also be halved and the clock will be paused until you are back in position. Slowest wins.",
+      "task_description": "Complete the course as slowly as possible. You must be riding the bicycle forwards within the limits of the course at all times. Every time you put a foot on the ground, the clock will be paused and your final time will be halved. If you leave the course or miss an instruction, your time will also be halved and the clock will be paused until you are back in position.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5696,7 +5696,7 @@
       "series_id": 12,
       "episode_num": 4,
       "task_num": 3,
-      "task_description": "Spread jam on a slice of toast in a really cool way. Coolest jam spreading wins.",
+      "task_description": "Spread jam on a slice of toast in a really cool way.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5705,7 +5705,7 @@
       "series_id": 12,
       "episode_num": 4,
       "task_num": 4,
-      "task_description": "Team: Solve the riddle. You must all stay in your rooms. Fastest wins.",
+      "task_description": "Team: Solve the riddle. You must all stay in your rooms.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -5714,7 +5714,7 @@
       "series_id": 12,
       "episode_num": 4,
       "task_num": 5,
-      "task_description": "Bonus: Make one of your teammates say the word submarine. You may not say submarine at any point. If they think you've tried to make them say submarine, you lose two points.",
+      "task_description": "Bonus: Make one of your teammates say the word submarine.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -5741,7 +5741,7 @@
       "series_id": 12,
       "episode_num": 5,
       "task_num": 2,
-      "task_description": "Sit on a cake. Fastest wins.",
+      "task_description": "Sit on a cake.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5768,7 +5768,7 @@
       "series_id": 12,
       "episode_num": 5,
       "task_num": 5,
-      "task_description": "Prevent Alex from scoring a goal. The ball and goalpost must be on their spots when Alex attempts to score a goal. You must be 12 yards from the ball when Alex attempts to score. Slowest goal scored by Alex wins.",
+      "task_description": "Prevent Alex from scoring a goal. The ball and goalpost must be on their spots when Alex attempts to score a goal. You must be 12 yards from the ball when Alex attempts to score.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5777,7 +5777,7 @@
       "series_id": 12,
       "episode_num": 5,
       "task_num": 6,
-      "task_description": "Live: Pop the most balloons. You may pop between one and ten balloons each turn. If you pop one of the five bad balloons, you are disqualified. The eventual winner gets ten actual points.",
+      "task_description": "Live: Pop the most balloons. You may pop between one and ten balloons each turn. If you pop one of the five bad balloons, you are disqualified.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5804,7 +5804,7 @@
       "series_id": 12,
       "episode_num": 6,
       "task_num": 3,
-      "task_description": "Make a cute toy for a cute dog. The dog will have five minutes with your cute toy. Most engaged dog wins.",
+      "task_description": "Make a cute toy for a cute dog. The dog will have five minutes with your cute toy.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5813,7 +5813,7 @@
       "series_id": 12,
       "episode_num": 6,
       "task_num": 4,
-      "task_description": "Sit on the red chair in the secret tower. You may only step on circles on your way. You may only stand on each circle once, unless it is black. You may stand on a black circle twice, but never twice in a row. Also you must put this task in the shredder within the first minute. If you fail for any reason, Alex will blow his whistle. Return everything to its starting position and you must start again. Fastest wins.",
+      "task_description": "Sit on the red chair in the secret tower. You may only step on circles on your way. You may only stand on each circle once, unless it is black. You may stand on a black circle twice, but never twice in a row. Also you must put this task in the shredder within the first minute. If you fail for any reason, Alex will blow his whistle. Return everything to its starting position and you must start again.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5822,7 +5822,7 @@
       "series_id": 12,
       "episode_num": 6,
       "task_num": 5,
-      "task_description": "Live: Choose the number of sheets you want for the second part of the task. Each sheet will reduce your points total by five. | Live: Make paper aeroplanes. Your paper aeroplanes must look like aeroplanes. Most points wins.",
+      "task_description": "Live: Choose the number of sheets you want for the second part of the task. Each sheet will reduce your points total by five. | Live: Make paper aeroplanes. Your paper aeroplanes must look like aeroplanes.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5840,7 +5840,7 @@
       "series_id": 12,
       "episode_num": 7,
       "task_num": 2,
-      "task_description": "Put up a shelf for all the Taskmaster's snooker balls. All the Taskmaster's snooker balls must be at the Taskmaster's eyeline. Only the Taskmaster's snooker balls may be on the finished shelf. Fastest wins.",
+      "task_description": "Put up a shelf for all the Taskmaster's snooker balls. All the Taskmaster's snooker balls must be at the Taskmaster's eyeline. Only the Taskmaster's snooker balls may be on the finished shelf.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5858,7 +5858,7 @@
       "series_id": 12,
       "episode_num": 7,
       "task_num": 4,
-      "task_description": "Either get the pipe through the box and everything in it then get the box and everything in it through the pipe or get the box and everything in it through the pipe then get the pipe through the box and everything in it. Fastest wins.",
+      "task_description": "Either get the pipe through the box and everything in it then get the box and everything in it through the pipe or get the box and everything in it through the pipe then get the pipe through the box and everything in it.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5867,7 +5867,7 @@
       "series_id": 12,
       "episode_num": 7,
       "task_num": 5,
-      "task_description": "Live: Each person must direct their fellow contestants to draw an image. The drawing director may only use the following words: line, circle, square, big, small, up, down, left, right, middle, please, bendy. At the end of one minute, the drawers must write down what they think the image is. The drawers will receive one point per correct guess. The drawing director will also receive one point per correct guess. Most points overall wins.",
+      "task_description": "Live: Each person must direct their fellow contestants to draw an image. The drawing director may only use the following words: line, circle, square, big, small, up, down, left, right, middle, please, bendy. At the end of one minute, the drawers must write down what they think the image is. The drawers will receive one point per correct guess. The drawing director will also receive one point per correct guess.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5885,7 +5885,7 @@
       "series_id": 12,
       "episode_num": 8,
       "task_num": 2,
-      "task_description": "Make and wear a popcorn necklace with at least five pieces of popcorn and then do the opposite of the following: You must under no circumstances not avoid not making the bell not ring. The task is over when you have either rung the bell or not rung the bell and said \"I did the right thing\" three times. Fastest to not do the wrong thing wins. If you don't do the right thing, you lose five points.",
+      "task_description": "Make and wear a popcorn necklace with at least five pieces of popcorn and then do the opposite of the following: You must under no circumstances not avoid not making the bell not ring. The task is over when you have either rung the bell or not rung the bell and said \"I did the right thing\" three times.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5894,7 +5894,7 @@
       "series_id": 12,
       "episode_num": 8,
       "task_num": 3,
-      "task_description": "Team: Play the most brilliant minute of socially-distanced sport. | Team: Provide the most iconic and memorable commentary for this brilliant one minute of socially-distanced sport. One of you must commentate on the action, another must provide analysis. Best commentary on the most brilliant socially-distanced sport wins.",
+      "task_description": "Team: Play the most brilliant minute of socially-distanced sport. | Team: Provide the most iconic and memorable commentary for this brilliant one minute of socially-distanced sport. One of you must commentate on the action, another must provide analysis.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -5903,7 +5903,7 @@
       "series_id": 12,
       "episode_num": 8,
       "task_num": 4,
-      "task_description": "Make your face look like another face when your face is turned upside-down. Most expressive and radically different upside-down face wins.",
+      "task_description": "Make your face look like another face when your face is turned upside-down.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5912,7 +5912,7 @@
       "series_id": 12,
       "episode_num": 8,
       "task_num": 5,
-      "task_description": "Live: Pop up before the object, but only just. You are only allowed to pop up once. Closest to the pop before the pop wins the round. If you pop up after the object, you get no points that round. | Blow the feather across the table using only your nose.",
+      "task_description": "Live: Pop up before the object, but only just. You are only allowed to pop up once. | Blow the feather across the table using only your nose.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5939,7 +5939,7 @@
       "series_id": 12,
       "episode_num": 9,
       "task_num": 3,
-      "task_description": "Strike the soldier with your throwing paint. The soldier will say your name every five seconds. You may not remove or tamper with your helmet. Fastest wins.",
+      "task_description": "Strike the soldier with your throwing paint. The soldier will say your name every five seconds. You may not remove or tamper with your helmet.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5948,7 +5948,7 @@
       "series_id": 12,
       "episode_num": 9,
       "task_num": 4,
-      "task_description": "Get goosebumps. Your goosebumps must be revealed in the lab. Fastest wins.",
+      "task_description": "Get goosebumps. Your goosebumps must be revealed in the lab.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5957,7 +5957,7 @@
       "series_id": 12,
       "episode_num": 9,
       "task_num": 5,
-      "task_description": "Team Live: Get the highest score by sliding your ducks. Each team will slide a pair of ducks three times. The duck slider must smirk at the Taskmaster whilst sliding their ducks. The winning team will receive five points per person, the losing team will get zero.",
+      "task_description": "Team Live: Get the highest score by sliding your ducks. Each team will slide a pair of ducks three times. The duck slider must smirk at the Taskmaster whilst sliding their ducks.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -5975,7 +5975,7 @@
       "series_id": 12,
       "episode_num": 10,
       "task_num": 2,
-      "task_description": "Drink all this drink with your mouth open. Your mouth must be visibly open throughout. Fastest wins.",
+      "task_description": "Drink all this drink with your mouth open. Your mouth must be visibly open throughout.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -5984,7 +5984,7 @@
       "series_id": 12,
       "episode_num": 10,
       "task_num": 3,
-      "task_description": "Team: Using your whole body to make individual characters, describe the Taskmaster. Your description must be a minimum of 20 characters long. Most vivid description wins.",
+      "task_description": "Team: Using your whole body to make individual characters, describe the Taskmaster. Your description must be a minimum of 20 characters long.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -5993,7 +5993,7 @@
       "series_id": 12,
       "episode_num": 10,
       "task_num": 4,
-      "task_description": "Team: Work out what your teammate's tasks are. You must stay in the caravan and must not communicate with your teammates in any way. After 10 minutes, you must write down what you think their tasks were. Best guesser wins.",
+      "task_description": "Team: Work out what your teammate's tasks are. You must stay in the caravan and must not communicate with your teammates in any way. After 10 minutes, you must write down what you think their tasks were.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -6020,7 +6020,7 @@
       "series_id": 12,
       "episode_num": 10,
       "task_num": 7,
-      "task_description": "Live: One at a time, make a noise without the Taskmaster identifying you. The person who makes the most unidentifiable noises wins.",
+      "task_description": "Live: One at a time, make a noise without the Taskmaster identifying you.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
