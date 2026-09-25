@@ -86,7 +86,7 @@
     },
     {
       "series_id": 22,
-      "episode_count": 3
+      "episode_count": 4
     }
   ],
   "dim_contestant": [
@@ -6038,7 +6038,7 @@
       "series_id": 13,
       "episode_num": 1,
       "task_num": 2,
-      "task_description": "Find all 10 ducks. You must stay in the lab. Fastest wins.",
+      "task_description": "Find all 10 ducks. You must stay in the lab.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6056,7 +6056,7 @@
       "series_id": 13,
       "episode_num": 1,
       "task_num": 4,
-      "task_description": "Devise a duel and have the duel with Alex. Most exhilarating duel wins.",
+      "task_description": "Devise a duel and have the duel with Alex.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6083,7 +6083,7 @@
       "series_id": 13,
       "episode_num": 2,
       "task_num": 2,
-      "task_description": "Either tie a ribbon round the maypole or strike it with a ping pong ball. You must be properly blindfolded at all times and must never step beyond the rope. Fastest wins.",
+      "task_description": "Either tie a ribbon round the maypole or strike it with a ping pong ball. You must be properly blindfolded at all times and must never step beyond the rope.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6092,7 +6092,7 @@
       "series_id": 13,
       "episode_num": 2,
       "task_num": 3,
-      "task_description": "Reveal the coolest photo in your phone. | Recreate the coolest photo in your phone. Most accurate recreation wins.",
+      "task_description": "Reveal the coolest photo in your phone. | Recreate the coolest photo in your phone.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6101,7 +6101,7 @@
       "series_id": 13,
       "episode_num": 2,
       "task_num": 4,
-      "task_description": "Team: Score a goal with each of the exercise balls. You may only move the exercise balls on the pitch when driving the buggy. Each person must score a goal using their own personal wheels to drive the buggy and no-one may score two goals in a row. Fastest hat-trick wins.",
+      "task_description": "Team: Score a goal with each of the exercise balls. You may only move the exercise balls on the pitch when driving the buggy. Each person must score a goal using their own personal wheels to drive the buggy and no-one may score two goals in a row.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -6110,7 +6110,7 @@
       "series_id": 13,
       "episode_num": 2,
       "task_num": 5,
-      "task_description": "Live: Identify the object under your table and draw it on the canvas on the underside of your table. You must also write down three words to describe your object. Most accurate drawing wins. You must also stare menacingly at the Taskmaster at all times.",
+      "task_description": "Live: Identify the object under your table and draw it on the canvas on the underside of your table. You must also write down three words to describe your object. You must also stare menacingly at the Taskmaster at all times.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6128,7 +6128,7 @@
       "series_id": 13,
       "episode_num": 3,
       "task_num": 2,
-      "task_description": "Accurately and emotionally recreate a great moment from history using these two traffic cones. Most accurate and emotional recreation wins.",
+      "task_description": "Accurately and emotionally recreate a great moment from history using these two traffic cones.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6137,7 +6137,7 @@
       "series_id": 13,
       "episode_num": 3,
       "task_num": 3,
-      "task_description": "Make all of these things happen at the same time. The monsters must be squatting. The robot must be walking. The marble must be rolling. The cradle must be clicking. The sand must be falling. The fidget spinner must be spinning. The candles must be out. You must applaud when you think you've finished. Fastest wins.",
+      "task_description": "Make all of these things happen at the same time. The monsters must be squatting. The robot must be walking. The marble must be rolling. The cradle must be clicking. The sand must be falling. The fidget spinner must be spinning. The candles must be out. You must applaud when you think you've finished.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6146,7 +6146,7 @@
       "series_id": 13,
       "episode_num": 3,
       "task_num": 4,
-      "task_description": "Enable Alex to bite his duck. You may not encroach upon the decking. Fastest wins.",
+      "task_description": "Enable Alex to bite his duck. You may not encroach upon the decking.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6164,7 +6164,7 @@
       "series_id": 13,
       "episode_num": 3,
       "task_num": 6,
-      "task_description": "Team Live: As a team, put one of your faces and one of your legs through the hole. The Taskmaster will guess whether the leg belongs to the face or the other contestant. Most wrong guesses after three rounds wins.",
+      "task_description": "Team Live: As a team, put one of your faces and one of your legs through the hole. The Taskmaster will guess whether the leg belongs to the face or the other contestant.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6182,7 +6182,7 @@
       "series_id": 13,
       "episode_num": 4,
       "task_num": 2,
-      "task_description": "Display the shoe Alex is thinking of. All the other shoes must be out of sight at the end of the attempt. You may only ask yes or no questions and you must say/do your given phrase/action after every answer. Fewest questions wins.",
+      "task_description": "Display the shoe Alex is thinking of. All the other shoes must be out of sight at the end of the attempt. You may only ask yes or no questions and you must say/do your given phrase/action after every answer.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6200,7 +6200,7 @@
       "series_id": 13,
       "episode_num": 4,
       "task_num": 4,
-      "task_description": "Make a stirring speech for the Taskmaster out of this bunting. Longest speech that is deemed to be stirring by the Taskmaster wins. You may only use the letters currently on the bunting.",
+      "task_description": "Make a stirring speech for the Taskmaster out of this bunting. You may only use the letters currently on the bunting.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6209,7 +6209,7 @@
       "series_id": 13,
       "episode_num": 4,
       "task_num": 5,
-      "task_description": "Live: Taking it in turns, roll a tyre down the Knappett. You must roll from on the stage. If your tyre does not pass the line, you may not roll any further tyres. If both your dolls topple, you may not roll any further tyres. Last doll standing wins. | Turn over the most beer mats.",
+      "task_description": "Live: Taking it in turns, roll a tyre down the Knappett. You must roll from on the stage. If your tyre does not pass the line, you may not roll any further tyres. If both your dolls topple, you may not roll any further tyres. | Turn over the most beer mats.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6236,7 +6236,7 @@
       "series_id": 13,
       "episode_num": 5,
       "task_num": 3,
-      "task_description": "Give Alex a high-five. The third-fastest high-fiver wins. If you are the first or the last, you will receive no points. You must high-five Alex within 10 minutes.",
+      "task_description": "Give Alex a high-five. You must high-five Alex within 10 minutes.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6245,7 +6245,7 @@
       "series_id": 13,
       "episode_num": 5,
       "task_num": 4,
-      "task_description": "Make the water level rise to the top of the big fish tank. You have 15 minutes to gather six things, then you must put all six things in the big fish tank. You may not put anything in the big fish tank before the 15 minutes are up and if any water leaves the big fish tank at any point, you are disqualified. Closest water level to the top of the big fish tank wins. No fish tanks may leave this room.",
+      "task_description": "Make the water level rise to the top of the big fish tank. You have 15 minutes to gather six things, then you must put all six things in the big fish tank. You may not put anything in the big fish tank before the 15 minutes are up and if any water leaves the big fish tank at any point, you are disqualified. No fish tanks may leave this room.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6254,7 +6254,7 @@
       "series_id": 13,
       "episode_num": 5,
       "task_num": 5,
-      "task_description": "Answer Alex's phone call. If you find a cuddly toy, you must carry it with you until you answer Alex's phone call. Also, you must be making a noise over 50dB for at least 50% of the time until you answer Alex's phone call. Fastest wins.",
+      "task_description": "Answer Alex's phone call. If you find a cuddly toy, you must carry it with you until you answer Alex's phone call. Also, you must be making a noise over 50dB for at least 50% of the time until you answer Alex's phone call.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6263,7 +6263,7 @@
       "series_id": 13,
       "episode_num": 5,
       "task_num": 6,
-      "task_description": "Live: Pop three red balls out of your hole. You may only pop out one ball at a time. If you pop out a black ball, you must stop popping out balls and scream for five seconds. If you pop out a white ball, everyone must stop popping out balls and dance like a worm for five seconds. If you pop out a duck, you are disqualified. Also, you must stare lovingly at the Taskmaster throughout the task. Fastest wins.",
+      "task_description": "Live: Pop three red balls out of your hole. You may only pop out one ball at a time. If you pop out a black ball, you must stop popping out balls and scream for five seconds. If you pop out a white ball, everyone must stop popping out balls and dance like a worm for five seconds. If you pop out a duck, you are disqualified. Also, you must stare lovingly at the Taskmaster throughout the task.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6281,7 +6281,7 @@
       "series_id": 13,
       "episode_num": 6,
       "task_num": 2,
-      "task_description": "Use the cement mixer for something other than mixing cement. Best use of a cement mixer other than mixing cement wins. Your time starts when Alex does an impression of you.",
+      "task_description": "Use the cement mixer for something other than mixing cement.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6299,7 +6299,7 @@
       "series_id": 13,
       "episode_num": 6,
       "task_num": 4,
-      "task_description": "Hold a meeting with yourselves. There must be eight of you at the meeting. Most dramatic meeting moment wins.",
+      "task_description": "Hold a meeting with yourselves. There must be eight of you at the meeting.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6308,7 +6308,7 @@
       "series_id": 13,
       "episode_num": 6,
       "task_num": 5,
-      "task_description": "Live: Correctly guess this person's first name. You must ask a yes or no question on your turn. If you take more than ten seconds to ask your question, you miss a go. The person who guesses correctly wins five points. | Sing \"I've won\" in a low voice and \"this tiebreak\" in a high voice. Greatest vocal range wins.",
+      "task_description": "Live: Correctly guess this person's first name. You must ask a yes or no question on your turn. If you take more than ten seconds to ask your question, you miss a go. | Sing \"I've won\" in a low voice and \"this tiebreak\" in a high voice.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6326,7 +6326,7 @@
       "series_id": 13,
       "episode_num": 7,
       "task_num": 2,
-      "task_description": "Show off. Biggest show-off wins.",
+      "task_description": "Show off.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6335,7 +6335,7 @@
       "series_id": 13,
       "episode_num": 7,
       "task_num": 3,
-      "task_description": "Team: Deliver a cocktail to Greg. Your cocktail must have the following ingredients: three different liquids shaken and stirred, one piece of fruit, quite a bit of ice. Every ingredient must pass through a head pipe before entering the Taskmaster's glass. Fastest wins.",
+      "task_description": "Team: Deliver a cocktail to Greg. Your cocktail must have the following ingredients: three different liquids shaken and stirred, one piece of fruit, quite a bit of ice. Every ingredient must pass through a head pipe before entering the Taskmaster's glass.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6353,7 +6353,7 @@
       "series_id": 13,
       "episode_num": 7,
       "task_num": 5,
-      "task_description": "Completely consume your beautiful sculpture. Fastest wins.",
+      "task_description": "Completely consume your beautiful sculpture.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6362,7 +6362,7 @@
       "series_id": 13,
       "episode_num": 7,
       "task_num": 6,
-      "task_description": "Live: Build the tallest tower of toilet rolls in front of your spot. After 100 seconds, you will throw both of your shoes at the towers one at a time from the throwing spot. Whoever builds the tallest tower will throw first. Tallest toilet roll tower after all shoes are thrown wins.",
+      "task_description": "Live: Build the tallest tower of toilet rolls in front of your spot. After 100 seconds, you will throw both of your shoes at the towers one at a time from the throwing spot. Whoever builds the tallest tower will throw first.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6380,7 +6380,7 @@
       "series_id": 13,
       "episode_num": 8,
       "task_num": 2,
-      "task_description": "Learn Swedish. You'll have a five-minute conversation with a Swedish person in 15 minutes from now. The phrasebook and tablet must remain in the caravan. Best demonstration of the Swedish language wins. Your time started when you first said \"Swedish\".",
+      "task_description": "Learn Swedish. You'll have a five-minute conversation with a Swedish person in 15 minutes from now. The phrasebook and tablet must remain in the caravan.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6389,7 +6389,7 @@
       "series_id": 13,
       "episode_num": 8,
       "task_num": 3,
-      "task_description": "Stick your tongue out as far as it will go and keep it out until further notice. Every time Alex blows his whistle, you must lick the lemon, then the sherbet, then the ice lolly. Every time Alex honks his horn, you must hold your tongue in front of the fan for five seconds. The tongue that sticks out for the longest time wins.",
+      "task_description": "Stick your tongue out as far as it will go and keep it out until further notice. Every time Alex blows his whistle, you must lick the lemon, then the sherbet, then the ice lolly. Every time Alex honks his horn, you must hold your tongue in front of the fan for five seconds.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6416,7 +6416,7 @@
       "series_id": 13,
       "episode_num": 8,
       "task_num": 6,
-      "task_description": "Team Live: Write down five things that fit the category given by the Taskmaster. Your team will receive a point if both player write down the same thing. If someone from the other team writes the same word as you, that word must be wiped from the boards. The team with the most points wins. You have 30 seconds to write your things and must be silent and still throughout.",
+      "task_description": "Team Live: Write down five things that fit the category given by the Taskmaster. Your team will receive a point if both player write down the same thing. If someone from the other team writes the same word as you, that word must be wiped from the boards. You have 30 seconds to write your things and must be silent and still throughout.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6452,7 +6452,7 @@
       "series_id": 13,
       "episode_num": 9,
       "task_num": 4,
-      "task_description": "Poke a part of your body out of the shower curtain and waggle it about for 10 seconds. The Taskmaster will guess what part of the body it is. Biggest part of the body that the Taskmaster incorrectly identifies wins.",
+      "task_description": "Poke a part of your body out of the shower curtain and waggle it about for 10 seconds. The Taskmaster will guess what part of the body it is.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6461,7 +6461,7 @@
       "series_id": 13,
       "episode_num": 9,
       "task_num": 5,
-      "task_description": "Live: Write down how many tin cans you think can fit in your bag. The highest predicted number fitted in a zipped-up bag within one minute wins. If you don't zip up your bag or fit your predicted number of tin cans in your bag, you will be disqualified.",
+      "task_description": "Live: Write down how many tin cans you think can fit in your bag. If you don't zip up your bag or fit your predicted number of tin cans in your bag, you will be disqualified.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -6479,7 +6479,7 @@
       "series_id": 13,
       "episode_num": 10,
       "task_num": 2,
-      "task_description": "Identify the liquids. Most accurately identified liquids wins.",
+      "task_description": "Identify the liquids.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
@@ -6497,7 +6497,7 @@
       "series_id": 13,
       "episode_num": 10,
       "task_num": 4,
-      "task_description": "Team: Record the best multi-track song about your team. You must record all six tracks with your voice or body and each person must record the same number of tracks. Most powerful multi-track song wins.",
+      "task_description": "Team: Record the best multi-track song about your team. You must record all six tracks with your voice or body and each person must record the same number of tracks.",
       "task_type": "Team",
       "is_tiebreaker": 0
     },
@@ -6506,7 +6506,7 @@
       "series_id": 13,
       "episode_num": 10,
       "task_num": 5,
-      "task_description": "Live: Draw a life-size self-portrait. Your nose must be poking through your nose hole at all times. Most accurate self-portrait wins.",
+      "task_description": "Live: Draw a life-size self-portrait. Your nose must be poking through your nose hole at all times.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -10440,6 +10440,51 @@
       "episode_num": 3,
       "task_num": 6,
       "task_description": "Live: Get all the red rolls on your left pole, the yellow rolls on your middle pole and the green rolls on your right pole. Only one roll may leave the poles at any time. Also, you must be waving at the Taskmaster with one hand throughout the task.",
+      "task_type": "Live",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1090,
+      "series_id": 22,
+      "episode_num": 4,
+      "task_num": 1,
+      "task_description": "Prize: Juiciest thing.",
+      "task_type": "Prize",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1091,
+      "series_id": 22,
+      "episode_num": 4,
+      "task_num": 2,
+      "task_description": "Find and complete the actual task. Everything you say from now on must be a question. If you say something that isn't a question, one minute will be added to your time, will it? Now look under the table? | Say your seven times table.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1092,
+      "series_id": 22,
+      "episode_num": 4,
+      "task_num": 3,
+      "task_description": "Team: Create the most powerful piece of art involving one or more of your armpits.",
+      "task_type": "Team",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1093,
+      "series_id": 22,
+      "episode_num": 4,
+      "task_num": 4,
+      "task_description": "Convince everyone you are wearing the official workplace earpiece, or if you are wearing the official workplace earpiece, convince everyone that you are not. If you are wearing the official workplace earpiece, you must obey all five instructions. If the Taskmaster fails to identify the worker, the worker gets five points. If a fellow contestant mistakenly accuses someone else of being the worker, that person gets five points. Nobody else gets any points.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1094,
+      "series_id": 22,
+      "episode_num": 4,
+      "task_num": 5,
+      "task_description": "Live: Draw the picture described by the Taskmaster while making eye contact with the Taskmaster. You can only look at your picture while the Taskmaster is shouting \"Bayeux Tapestry\".",
       "task_type": "Live",
       "is_tiebreaker": 0
     }
@@ -64893,6 +64938,256 @@
       "episode_num": 3,
       "points": 0,
       "is_dq": 1,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5446,
+      "task_id": 1090,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5447,
+      "task_id": 1090,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5448,
+      "task_id": 1090,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5449,
+      "task_id": 1090,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5450,
+      "task_id": 1090,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5451,
+      "task_id": 1091,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5452,
+      "task_id": 1091,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5453,
+      "task_id": 1091,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5454,
+      "task_id": 1091,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5455,
+      "task_id": 1091,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5456,
+      "task_id": 1092,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5457,
+      "task_id": 1092,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5458,
+      "task_id": 1092,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5459,
+      "task_id": 1092,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5460,
+      "task_id": 1092,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5461,
+      "task_id": 1093,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5462,
+      "task_id": 1093,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5463,
+      "task_id": 1093,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5464,
+      "task_id": 1093,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5465,
+      "task_id": 1093,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5466,
+      "task_id": 1094,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5467,
+      "task_id": 1094,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5468,
+      "task_id": 1094,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5469,
+      "task_id": 1094,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5470,
+      "task_id": 1094,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 4,
+      "points": 2,
+      "is_dq": 0,
       "is_ep_winner": 0
     }
   ]
