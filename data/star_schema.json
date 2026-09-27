@@ -6776,7 +6776,7 @@
       "series_id": 14,
       "episode_num": 6,
       "task_num": 2,
-      "task_description": "Within 30 seconds of opening this task, you must pick up both milk bottles and hold them directly above the microwaves. The clock stops when a milk bottle, hand or arm touches a microwave or is no longer directly above a microwave. Lowest number on the clock wins, but if the clock reaches zero, you are disqualified.",
+      "task_description": "Within 30 seconds of opening this task, you must pick up both milk bottles and hold them directly above the microwaves. The clock stops when a milk bottle, hand or arm touches a microwave or is no longer directly above a microwave.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
