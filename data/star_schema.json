@@ -86,7 +86,7 @@
     },
     {
       "series_id": 22,
-      "episode_count": 4
+      "episode_count": 5
     }
   ],
   "dim_contestant": [
@@ -10385,7 +10385,7 @@
       "series_id": 22,
       "episode_num": 2,
       "task_num": 8,
-      "task_description": "Live: Get to the centre spot first. On the horn, hold up a paddle to indicate which contestant cannot progress. You may only move forward if your colour isn't chosen. You may converse between horns. | Guess the temperature of the liquid in the flask.",
+      "task_description": "Live: Get to the centre spot first. On the horn, hold up a paddle to indicate which contestant cannot progress. You may only move forward if your colour isn't chosen. You may converse between horns. First to the centre gets five points, second gets three points, third gets one point. No one else gets any points. | Guess the temperature of the liquid in the flask.",
       "task_type": "Live",
       "is_tiebreaker": 0
     },
@@ -10485,6 +10485,51 @@
       "episode_num": 4,
       "task_num": 5,
       "task_description": "Live: Draw the picture described by the Taskmaster while making eye contact with the Taskmaster. You can only look at your picture while the Taskmaster is shouting \"Bayeux Tapestry\".",
+      "task_type": "Live",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1095,
+      "series_id": 22,
+      "episode_num": 5,
+      "task_num": 1,
+      "task_description": "Prize: The item that most deserves to be handled with a velvet glove.",
+      "task_type": "Prize",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1096,
+      "series_id": 22,
+      "episode_num": 5,
+      "task_num": 2,
+      "task_description": "Hide from Alex wearing this arrow on your head at all times. You must not remove or cover your arrow and your arrow must remain exposed at all times.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1097,
+      "series_id": 22,
+      "episode_num": 5,
+      "task_num": 3,
+      "task_description": "Learn the name of every country in the world according to FIFA. If you can get away with cheating, that's fine, but if you get caught cheating, that's not fine.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1098,
+      "series_id": 22,
+      "episode_num": 5,
+      "task_num": 4,
+      "task_description": "Disobey all instructions that start with \"Alex says\". Obey all other instructions. Any instructions missed or incorrectly followed will be subtracted from your total.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1099,
+      "series_id": 22,
+      "episode_num": 5,
+      "task_num": 5,
+      "task_description": "Live: Snag the snake. Taking it in turns, pull a rope. You may only pull the rope you first touch and you must pull that rope within 10 seconds of the last person pulling. If you pull out the stick of dynamite, you miss your next go. If you pull out the sausage, you are disqualified and lose one point. If you pull out the snake, you win five points.",
       "task_type": "Live",
       "is_tiebreaker": 0
     }
@@ -65187,6 +65232,256 @@
       "series_id": 22,
       "episode_num": 4,
       "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5471,
+      "task_id": 1095,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5472,
+      "task_id": 1095,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5473,
+      "task_id": 1095,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5474,
+      "task_id": 1095,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5475,
+      "task_id": 1095,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5476,
+      "task_id": 1096,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5477,
+      "task_id": 1096,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5478,
+      "task_id": 1096,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5479,
+      "task_id": 1096,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5480,
+      "task_id": 1096,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5481,
+      "task_id": 1097,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5482,
+      "task_id": 1097,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5483,
+      "task_id": 1097,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5484,
+      "task_id": 1097,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5485,
+      "task_id": 1097,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5486,
+      "task_id": 1098,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5487,
+      "task_id": 1098,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5488,
+      "task_id": 1098,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5489,
+      "task_id": 1098,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5490,
+      "task_id": 1098,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5491,
+      "task_id": 1099,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5492,
+      "task_id": 1099,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5493,
+      "task_id": 1099,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5494,
+      "task_id": 1099,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": -1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5495,
+      "task_id": 1099,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 5,
+      "points": 0,
       "is_dq": 0,
       "is_ep_winner": 0
     }
