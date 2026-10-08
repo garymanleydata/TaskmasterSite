@@ -12763,7 +12763,7 @@
     "task_type": "Live",
     "contestant_name": "Russell Howard",
     "points": 0,
-    "is_dq": 1,
+    "is_dq": 0,
     "is_tiebreaker": 0,
     "is_ep_winner": 0
   },
@@ -52759,7 +52759,7 @@
     "task_type": "Live",
     "contestant_name": "Babátúndé Aléshé",
     "points": 0,
-    "is_dq": 1,
+    "is_dq": 0,
     "is_tiebreaker": 0,
     "is_ep_winner": 0
   },
@@ -52783,7 +52783,7 @@
     "task_type": "Live",
     "contestant_name": "Jack Dee",
     "points": 0,
-    "is_dq": 1,
+    "is_dq": 0,
     "is_tiebreaker": 0,
     "is_ep_winner": 0
   },
