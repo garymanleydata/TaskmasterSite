@@ -86,7 +86,7 @@
     },
     {
       "series_id": 22,
-      "episode_count": 5
+      "episode_count": 6
     }
   ],
   "dim_contestant": [
@@ -10530,6 +10530,60 @@
       "episode_num": 5,
       "task_num": 5,
       "task_description": "Live: Snag the snake. Taking it in turns, pull a rope. You may only pull the rope you first touch and you must pull that rope within 10 seconds of the last person pulling. If you pull out the stick of dynamite, you miss your next go. If you pull out the sausage, you are disqualified and lose one point. If you pull out the snake, you win five points.",
+      "task_type": "Live",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1100,
+      "series_id": 22,
+      "episode_num": 6,
+      "task_num": 1,
+      "task_description": "Prize: A sick bit of lit kit.",
+      "task_type": "Prize",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1101,
+      "series_id": 22,
+      "episode_num": 6,
+      "task_num": 2,
+      "task_description": "Do a whoopsie.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1102,
+      "series_id": 22,
+      "episode_num": 6,
+      "task_num": 3,
+      "task_description": "Achieve the highest score on the Gregulator. You have a maximum of five spins. You may ask the Gregs a total of five questions and each question must be addressed to an individual Greg. You may only ask yes-or-no questions.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1103,
+      "series_id": 22,
+      "episode_num": 6,
+      "task_num": 4,
+      "task_description": "Get this shoe furthest away from the other four shoes. You have until St Patrick's Day on which date your shoe must be appropriately photographed in its new location with proof that it is St Patrick's Day.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1104,
+      "series_id": 22,
+      "episode_num": 6,
+      "task_num": 5,
+      "task_description": "Bonus: The shoe that goes on the most exciting journey.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1105,
+      "series_id": 22,
+      "episode_num": 6,
+      "task_num": 6,
+      "task_description": "Team Live: Draw the item on your screen for your teammates to identify.",
       "task_type": "Live",
       "is_tiebreaker": 0
     }
@@ -65482,6 +65536,306 @@
       "series_id": 22,
       "episode_num": 5,
       "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5496,
+      "task_id": 1100,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5497,
+      "task_id": 1100,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5498,
+      "task_id": 1100,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5499,
+      "task_id": 1100,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5500,
+      "task_id": 1100,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5501,
+      "task_id": 1101,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5502,
+      "task_id": 1101,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5503,
+      "task_id": 1101,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5504,
+      "task_id": 1101,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5505,
+      "task_id": 1101,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5506,
+      "task_id": 1102,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5507,
+      "task_id": 1102,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5508,
+      "task_id": 1102,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5509,
+      "task_id": 1102,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5510,
+      "task_id": 1102,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5511,
+      "task_id": 1103,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5512,
+      "task_id": 1103,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5513,
+      "task_id": 1103,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5514,
+      "task_id": 1103,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5515,
+      "task_id": 1103,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5516,
+      "task_id": 1104,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5517,
+      "task_id": 1104,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5518,
+      "task_id": 1104,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5519,
+      "task_id": 1104,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5520,
+      "task_id": 1104,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5521,
+      "task_id": 1105,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5522,
+      "task_id": 1105,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5523,
+      "task_id": 1105,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5524,
+      "task_id": 1105,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5525,
+      "task_id": 1105,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 6,
+      "points": 1,
       "is_dq": 0,
       "is_ep_winner": 0
     }
