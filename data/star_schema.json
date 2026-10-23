@@ -86,7 +86,7 @@
     },
     {
       "series_id": 22,
-      "episode_count": 7
+      "episode_count": 8
     }
   ],
   "dim_contestant": [
@@ -10629,6 +10629,51 @@
       "episode_num": 7,
       "task_num": 5,
       "task_description": "Live: Find a nipple in a napkin in a nappy in a knapsack on the Knappett. Each round, you must each throw your die a maximum of two times. Whoever gets the highest unique number may look in a knapsack.",
+      "task_type": "Live",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1111,
+      "series_id": 22,
+      "episode_num": 8,
+      "task_num": 1,
+      "task_description": "Prize: The thing which you can't help but smile when you talk about it and will most likely make the Taskmaster smile too.",
+      "task_type": "Prize",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1112,
+      "series_id": 22,
+      "episode_num": 8,
+      "task_num": 2,
+      "task_description": "Prepare to complete the course blindfolded. You must not significantly tamper with any element of the course. | Complete the course blindfolded. For every millilitre of grog spilled, 10 seconds will be added to your time. For every orange item touched, one minute will be added to your time. For every obstacle not overcome, five minutes will be added to your time. For every time Alex gets you back on track, 10 minutes will be added to your time.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1113,
+      "series_id": 22,
+      "episode_num": 8,
+      "task_num": 3,
+      "task_description": "Make the best self-portrait on the peg board using only wool and pegs. Your portrait must be at least 80 dots wide and 40 tall, and it must feature the animal that best represents you. You must mutter while you work. You must make your portrait upside down so that it looks like the best portrait when it is turned the right way up.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1114,
+      "series_id": 22,
+      "episode_num": 8,
+      "task_num": 4,
+      "task_description": "Record a total of exactly 1,000, 5,000 or 9,999 on the Taskmaster's measurement machine. You must press each button at least once during the course of your attempt and you cannot press any button twice in a row. If your total tops 9,999, you are disqualified. The Taskmaster's measurement machine must stay in the lab.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1115,
+      "series_id": 22,
+      "episode_num": 8,
+      "task_num": 5,
+      "task_description": "Live: Predict how many times you can do things between throwing an catching an object. If you then fail, you are eliminated. If all players succeed, the person who predicted the lowest number is eliminated.",
       "task_type": "Live",
       "is_tiebreaker": 0
     }
@@ -66131,6 +66176,256 @@
       "series_id": 22,
       "episode_num": 7,
       "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5551,
+      "task_id": 1111,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5552,
+      "task_id": 1111,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5553,
+      "task_id": 1111,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5554,
+      "task_id": 1111,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5555,
+      "task_id": 1111,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5556,
+      "task_id": 1112,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5557,
+      "task_id": 1112,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5558,
+      "task_id": 1112,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5559,
+      "task_id": 1112,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5560,
+      "task_id": 1112,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5561,
+      "task_id": 1113,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5562,
+      "task_id": 1113,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5563,
+      "task_id": 1113,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5564,
+      "task_id": 1113,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5565,
+      "task_id": 1113,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5566,
+      "task_id": 1114,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 0,
+      "is_dq": 1,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5567,
+      "task_id": 1114,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5568,
+      "task_id": 1114,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 0,
+      "is_dq": 1,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5569,
+      "task_id": 1114,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5570,
+      "task_id": 1114,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5571,
+      "task_id": 1115,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5572,
+      "task_id": 1115,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5573,
+      "task_id": 1115,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5574,
+      "task_id": 1115,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5575,
+      "task_id": 1115,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 8,
+      "points": 5,
       "is_dq": 0,
       "is_ep_winner": 0
     }
