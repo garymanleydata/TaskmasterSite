@@ -86,7 +86,7 @@
     },
     {
       "series_id": 22,
-      "episode_count": 9
+      "episode_count": 10
     }
   ],
   "dim_contestant": [
@@ -10719,6 +10719,51 @@
       "episode_num": 9,
       "task_num": 5,
       "task_description": "Live: When the Taskmaster says \"sock\", you must pass a sock under the table to your left. When you have four of the same coloured socks, you may grab a duck, or when somebody else grabs a duck, you may grab a duck. Whoever doesn't grab a duck is eliminated.",
+      "task_type": "Live",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1121,
+      "series_id": 22,
+      "episode_num": 10,
+      "task_num": 1,
+      "task_description": "Prize: The object they own which would be the best object to appear on their Wikipedia page.",
+      "task_type": "Prize",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1122,
+      "series_id": 22,
+      "episode_num": 10,
+      "task_num": 2,
+      "task_description": "Make a tiny model of something pleasant and place it inside this matchbox. | Exactly recreate your pleasant tiny model but 20 times bigger.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1123,
+      "series_id": 22,
+      "episode_num": 10,
+      "task_num": 3,
+      "task_description": "Get a feather in the bucket. You may take a maximum of 60 steps.",
+      "task_type": "Normal",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1124,
+      "series_id": 22,
+      "episode_num": 10,
+      "task_num": 4,
+      "task_description": "Team: Meticulously recreate a famous movie scene. Your scene must last no longer than one minute and the dialogue in your scene must not contain recognisable words in any language.",
+      "task_type": "Team",
+      "is_tiebreaker": 0
+    },
+    {
+      "task_id": 1125,
+      "series_id": 22,
+      "episode_num": 10,
+      "task_num": 5,
+      "task_description": "Live: Provide a voice for the Taskmaster's assistant that the Taskmaster will not know is actually you. When your hand makes contact with the Taskmaster's assistant's back, his mouth will open, and when you take your hand off, his mouth will close.",
       "task_type": "Live",
       "is_tiebreaker": 0
     }
@@ -66721,6 +66766,256 @@
       "series_id": 22,
       "episode_num": 9,
       "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5601,
+      "task_id": 1121,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5602,
+      "task_id": 1121,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5603,
+      "task_id": 1121,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5604,
+      "task_id": 1121,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5605,
+      "task_id": 1121,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5606,
+      "task_id": 1122,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5607,
+      "task_id": 1122,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5608,
+      "task_id": 1122,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5609,
+      "task_id": 1122,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5610,
+      "task_id": 1122,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 1,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5611,
+      "task_id": 1123,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 3,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5612,
+      "task_id": 1123,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 2,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5613,
+      "task_id": 1123,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5614,
+      "task_id": 1123,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 0,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5615,
+      "task_id": 1123,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5616,
+      "task_id": 1124,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5617,
+      "task_id": 1124,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5618,
+      "task_id": 1124,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5619,
+      "task_id": 1124,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 4,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5620,
+      "task_id": 1124,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5621,
+      "task_id": 1125,
+      "contestant_id": 106,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5622,
+      "task_id": 1125,
+      "contestant_id": 107,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5623,
+      "task_id": 1125,
+      "contestant_id": 108,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 1
+    },
+    {
+      "score_id": 5624,
+      "task_id": 1125,
+      "contestant_id": 109,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 5,
+      "is_dq": 0,
+      "is_ep_winner": 0
+    },
+    {
+      "score_id": 5625,
+      "task_id": 1125,
+      "contestant_id": 110,
+      "series_id": 22,
+      "episode_num": 10,
+      "points": 1,
       "is_dq": 0,
       "is_ep_winner": 0
     }
