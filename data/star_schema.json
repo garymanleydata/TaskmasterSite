@@ -10655,7 +10655,7 @@
       "series_id": 22,
       "episode_num": 8,
       "task_num": 3,
-      "task_description": "Make the best self-portrait on the peg board using only wool and pegs. Your portrait must be at least 80 dots wide and 40 tall, and it must feature the animal that best represents you. You must mutter while you work. You must make your portrait upside down so that it looks like the best portrait when it is turned the right way up.",
+      "task_description": "Make the best self-portrait on the pegboard using only wool and pegs. Your portrait must be at least 80 dots wide and 40 tall, and it must feature the animal that best represents you. You must mutter while you work. You must make your portrait upside down so that it looks like the best portrait when it is turned the right way up.",
       "task_type": "Normal",
       "is_tiebreaker": 0
     },
